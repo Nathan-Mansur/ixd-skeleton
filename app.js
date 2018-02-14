@@ -17,6 +17,7 @@ var addClass = require('./routes/addClass');
 var calendar = require('./routes/calendar');
 var social = require('./routes/social');
 var login = require('./routes/login');
+var newAccount = require('./routes/newAccount');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.get('/addClass', addClass.view);
 app.get('/calendar', calendar.view);
 app.get('/social', social.view);
 app.get('/index', index.view);
+app.get('/newAccount', newAccount.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
