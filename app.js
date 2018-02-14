@@ -16,6 +16,7 @@ var add = require('./routes/add');
 var addClass = require('./routes/addClass');
 var calendar = require('./routes/calendar');
 var social = require('./routes/social');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -39,7 +40,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', index.view);
+app.get('/', login.view);
 // Example route
 // app.get('/users', user.list);
 app.get('/tasks', tasks.view);
@@ -47,6 +48,7 @@ app.get('/add', add.addTask);
 app.get('/addClass', addClass.view);
 app.get('/calendar', calendar.view);
 app.get('/social', social.view);
+app.get('/index', index.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
