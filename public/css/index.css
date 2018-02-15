@@ -10,7 +10,11 @@ body, html {
 
 .btn {
 	z-index: 0;
+<<<<<<< HEAD
 	margin: 20px 30px 20px 0px;
+=======
+    margin: 20px;
+>>>>>>> c095ad2608e64102b4494c7b3fccb236fee5e9f3
 	width: 200px;
 }
 
