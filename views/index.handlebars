@@ -23,11 +23,15 @@
 
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
+	<div id="addPop" class="popup">
+
+	</div>
+
 	<div class="container text-center">
 		<h1 id="title">m.n.m.l.</h1>
-		<div style="height: 60px"></div><hr>
+		<div style="height: 120px"></div><hr class="topbar">
 		
-		<h3>Today's Tasks -</h3>
+		<h3 class="todays">Today's Tasks -</h3>
 
 		<div id="tasklist">
 			{{#each tasks}}
@@ -40,7 +44,9 @@
 			{{/each}}
 		</div>
 
-		<div class="circle"></div>
+		<a href="javascript:void(0)" onclick="openAdd()">
+			<div class="circle"><p style="transform: translateY(2px); color: white; font-size: 25px">+</p></div>
+		</a>
 
 		<h4 id="quote">"you can do it!" - mnml</h4>
 
@@ -53,6 +59,15 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
+		
+		// function openAdd() {
+		// 	document.getElementById("addPop").style.opacity = "1.0";
+		// }
+
+		// function submitAdd() {
+		// 	document.getElementById("addPop").style.opacity = "0.0";
+		// }
+
 </script>
 </body>
 </html>

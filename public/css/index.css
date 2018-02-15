@@ -37,6 +37,22 @@ h3 {
     top: 21px;
 }
 
+.topbar {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    margin: auto;
+}
+
+.todays {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 
 .container .tasks {
     text-decoration: none;
@@ -54,7 +70,8 @@ h3 {
 }
 
 
-#tasklist {
+div #tasklist {
+    overflow: scroll;
     padding-left: 13px;
     padding-right: 13px;
     text-align: left;
@@ -68,6 +85,11 @@ h3 {
     right: 25px;
     bottom: 25px;
     background: #E84F4F;
+    box-shadow: 0px 0px 10px 3px #444444;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #quote {
@@ -126,4 +148,16 @@ span {
 
 .closebtn {
     transform: translateY(5px);
+}
+
+.popup {
+    z-index: 5;
+    position: fixed;
+    border-radius: 10%;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    color: rgba(255, 255, 255, 1);
+    opacity: 1.0
 }
