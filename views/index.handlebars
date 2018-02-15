@@ -13,27 +13,32 @@
 </head>
 
 <body>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="calendar">calendar</a>
+		<a href="social">social</a>
+		<a href="addClass">add class</a>
+		<a href="#">settings</a>
+	</div>
+
+	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
 	<div class="container text-center">
-		<h1>m.n.m.l.</h1>
+		<h1 id="title">m.n.m.l.</h1>
 
-		<!--Task Button -->
-		<a href="tasks" class="btn btn-info btn-space" role="button"><h2>tasks</h2></a>
-		<br>
+		
 
-		<!--Add Class Button -->
-		<a href="addClass" class="btn btn-info" role="button"><h2>add class</h2></a>
-		<br>
-
-		<!--Calendar Button -->
-		<a href="calendar" class="btn btn-info" role="button"><h2>calendar</h2></a>
-		<br>
-
-		<!--Social Button -->
-		<a href="social" class="btn btn-info" role="button"><h2>social</h2></a>
-		<br>
-
-		<h3>you can do it!</h3>
+		<h3 id="quote">you can do it!</h3>
 
 	</div>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "225px";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+</script>
 </body>
 </html>
