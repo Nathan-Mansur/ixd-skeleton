@@ -25,10 +25,22 @@
 
 	<div class="container text-center">
 		<h1 id="title">m.n.m.l.</h1>
-
+		<div style="height: 60px"></div><hr>
 		
+		<h3>Today's Tasks -</h3>
 
-		<h3 id="quote">you can do it!</h3>
+		<div id="tasklist">
+			{{#each tasks}}
+				<div class="task">
+					<a href="#" class="tasks">
+						<div class="box"><h2>&#x25A2;</h2></div>
+						<div class="name"><h2>{{name}}</h2></div>
+					</a>
+				</div>
+			{{/each}}
+		</div>
+
+		<h4 id="quote">"you can do it!" - mnml</h4>
 
 	</div>
 	<script>

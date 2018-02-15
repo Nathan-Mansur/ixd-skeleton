@@ -15,7 +15,7 @@ body, html {
 	width: 200px;
 }
 
-h1, h3 {
+h1, h4 {
     z-index: 0;
 	color: white;
     position: fixed;
@@ -24,12 +24,44 @@ h1, h3 {
     margin: auto;
 }
 
+h2, h3 {
+    color: white;
+}
+
+h3 {
+    font-size: 15pt;
+    color: white;
+}
+
 #title {
-    top: 25px;
+    top: 21px;
+}
+
+
+.container .tasks {
+    text-decoration: none;
+    color: white;
+}
+
+.box {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#tasklist {
+    padding-left: 13px;
+    padding-right: 13px;
+    text-align: left;
 }
 
 #quote {
-    bottom: 25px;
+    bottom: 23px;
 }
 
 body {
@@ -41,8 +73,8 @@ span {
     z-index: 1;
     position: fixed;
     color: silver;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin-top: 20px;
+    margin-left: 30px;
 }
 
 .sidenav {
@@ -77,4 +109,8 @@ span {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.closebtn {
+    transform: translateY(5px);
 }
