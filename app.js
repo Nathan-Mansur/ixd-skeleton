@@ -18,6 +18,8 @@ var calendar = require('./routes/calendar');
 var social = require('./routes/social');
 var login = require('./routes/login');
 var newAccount = require('./routes/newAccount');
+var challenge = require('./routes/challenge');
+var addFriend = require('./routes/addFriend');
 
 var app = express();
 
@@ -51,6 +53,8 @@ app.get('/calendar', calendar.view);
 app.get('/social', social.view);
 app.get('/index', index.view);
 app.get('/newAccount', newAccount.view);
+app.get('/challenge', challenge.view);
+app.get('/addFriend', addFriend.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
