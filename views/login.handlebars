@@ -10,6 +10,8 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	{{> facebook}}
+	<script src="/js/facebook.js"></script>
 </head>
 
 <body>
@@ -26,9 +28,14 @@
     			<label for="exampleInputPassword1"><h3>password</h3></label>
     			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
   			</div>
+
   			<input type="button" class="btn btn-primary center" value="sign in" onclick="location.href = 'index';">
+
   			<input type="button" class="btn btn-primary" value="new account" onclick="location.href = 'newAccount';">
 		</form>
+
+		<fb:login-button class="fbButton" scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
 
 	</div>
 </body>
