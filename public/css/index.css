@@ -15,7 +15,7 @@ body, html {
 	width: 200px;
 }
 
-h1, h4 {
+h1 {
     z-index: 0;
 	color: white;
     position: fixed;
@@ -60,8 +60,21 @@ h3 {
     text-align: left;
 }
 
+.circle {
+    position: fixed;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    right: 25px;
+    bottom: 25px;
+    background: #E84F4F;
+}
+
 #quote {
-    bottom: 23px;
+    color: white;
+    position: fixed;
+    left: 15px;
+    bottom: 10px;
 }
 
 body {
