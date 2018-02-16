@@ -11,7 +11,7 @@ exports.addTask = function(req, res){
     }
 
     data.tasks.push(newTask);
-    res.render('tasks', {
+    res.render('home', {
         'tasks': data.tasks
     });
 };
