@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>m.n.m.l.</title>
+	<title>m.n.m.l. login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -10,73 +10,33 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.js"></script>
-	<script src="/js/home.js"></script>
+	{{> facebook}}
+	<script src="/js/facebook.js"></script>
 </head>
 
 <body>
+	<div class="container">
+		<h1 class="text-center">m.n.m.l.</h1>
 
-	<!-- Side Nav Bar -->
-	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="calendar">calendar</a>
-		<a href="social">social</a>
-		<a href="addClass">add class</a>
-		<a href="#">settings</a>
-	</div>
+		<form>
+			<div class="form-group left-margin">
+ 		   		<label for="exampleInputEmail1"><h3>enter email</h3></label>
+ 		   		<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email@something.com">
+    			<small id="emailHelp" class="form-text text-muted">we'll never share your email with anyone else.</small>
+  			</div>
+  			<div class="form-group">
+    			<label for="exampleInputPassword1"><h3>password</h3></label>
+    			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+  			</div>
 
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  			<input type="button" class="btn btn-primary center" value="sign in" onclick="location.href = 'home';">
 
-	<!-- -->
-	<div id="addPop" class="popup">
+  			<input type="button" class="btn btn-primary" value="new account" onclick="location.href = 'newAccount';">
+		</form>
 
-	</div>
-
-	<div class="container text-center">
-		<h1 id="title">m.n.m.l.</h1>
-		<div style="height: 120px"></div><hr class="topbar">
-		
-		<h3 class="todays">Today's Tasks</h3>
-
-		<!-- Task List -->
-		<div id="tasklist">
-			<!-- Example task crossed off -->
-	<!--		<div class="task">
-					<a href="#" class="tasks checked">
-						<div class="box"><h2>&#x25A2;</h2></div>
-						<div class="name"><h2>cogs 120: a6</h2></div>
-					</a>
-				</div>
-		</div> -->
-			{{#each tasks}}
-				<div class="task">
-					<a href="#" class="tasks checked">
-						<div id="addCheckmark" class="box" onclick="addCheck()"><h2>&#x25A2;</h2></div>
-						<div class="name"><h2>{{name}}</h2></div>
-					</a>
-				</div>
-			{{/each}}
-		</div>
-
-		<!-- Add button -->
-		<a href="javascript:void(0)" onclick="openAdd()">
-			<div class="circle"><p style="transform: translateY(2px); color: white; font-size: 25px">+</p></div>
-		</a>
-
-		<!-- Quote on the bottom -->
-		<h4 id="quote">"you can do it!" - mnml</h4>
+		<fb:login-button class="fbButton" scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
 
 	</div>
-	<script>
-		
-		
-		// function openAdd() {
-		// 	document.getElementById("addPop").style.opacity = "1.0";
-		// }
-
-		// function submitAdd() {
-		// 	document.getElementById("addPop").style.opacity = "0.0";
-		// }
-
-</script>
 </body>
 </html>

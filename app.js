@@ -16,7 +16,7 @@ var add = require('./routes/add');
 var addClass = require('./routes/addClass');
 var calendar = require('./routes/calendar');
 var social = require('./routes/social');
-var login = require('./routes/login');
+var home = require('./routes/home');
 var newAccount = require('./routes/newAccount');
 var challenge = require('./routes/challenge');
 var addFriend = require('./routes/addFriend');
@@ -43,7 +43,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', login.view);
+app.get('/', index.view);
 // Example route
 // app.get('/users', user.list);
 app.get('/tasks', tasks.view);
@@ -51,7 +51,7 @@ app.get('/add', add.addTask);
 app.get('/addClass', addClass.view);
 app.get('/calendar', calendar.view);
 app.get('/social', social.view);
-app.get('/index', index.view);
+app.get('/home', home.view);
 app.get('/newAccount', newAccount.view);
 app.get('/challenge', challenge.view);
 app.get('/addFriend', addFriend.view);

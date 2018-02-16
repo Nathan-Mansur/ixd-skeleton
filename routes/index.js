@@ -1,12 +1,8 @@
+
 /*
- * GET home page.
+ * GET login page.
  */
 
-var data = require("../tasks.json");
-
 exports.view = function(req, res){
-  res.render('index', {
-      'tasks': data.tasks
-  });
+  res.render('index');
 };
-
