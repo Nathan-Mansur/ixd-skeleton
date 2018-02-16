@@ -65,7 +65,7 @@ h3 {
 }
 
 /*Add a Checkmark */
-/* .box::before {
+/* .box:before {
     content: '';
     position: absolute;
     border-color: #fff;
@@ -185,3 +185,5 @@ span {
     width: 375px;
     height: 400px;
 }
+
+

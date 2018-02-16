@@ -1,7 +1,7 @@
 // Add a "checked" symbol when clicking on a list item
 
 function addCheck() {
-	var checkmarkBox = document.getElementById("addCheckmark");
+	var checkmarkBox = document.getElement("addCheckmark");
 	if (checkmarkBox.style.visibility === "hidden") {
 		checkmarkBox.style.visibility = "visible";
 	}
