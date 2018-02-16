@@ -30,13 +30,15 @@ function closeNav() {
 }
 
 function openAdd() {
-	document.getElementById("addPop").style.opacity = "1.0";
+	document.getElementById("addPop").style.zIndex = "2";
 }
 
 function submitAdd() {
-	document.getElementById("addPop").style.opacity = "0";
+	document.getElementById("addPop").style.zIndex = "-1";
 }
 
 function closeAdd() {
-	document.getElementById("addPop").style.opacity = "0";
+	document.getElementById("addPop").style.zIndex = "-1";
 }
+
+document.getElementById("tasklist").focus();
