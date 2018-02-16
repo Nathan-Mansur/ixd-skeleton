@@ -32,25 +32,18 @@
 		
 		<h3 class="todays">Today's Tasks</h3>
 
+		<!-- Popup button -->
 		<div id="addPop" class="popup">
 			<form id="addTaskForm" role="form" method="get">
 	    	    <div class="form-group">
 	    	      <input type="text" class="form-control" id="name" placeholder="add a task" name="name">
 	    	    </div>
-	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input>
+	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input><input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
     		</form>
 		</div>
 
 		<!-- Task List -->
 		<div id="tasklist">
-			<!-- Example task crossed off -->
-	<!--		<div class="task">
-					<a href="#" class="tasks checked">
-						<div class="box"><h2>&#x25A2;</h2></div>
-						<div class="name"><h2>cogs 120: a6</h2></div>
-					</a>
-				</div>
-		</div> -->
 			{{#each tasks}}
 			<div class="task">
 				<a href="#" class="tasks">

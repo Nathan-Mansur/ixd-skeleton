@@ -36,3 +36,7 @@ function openAdd() {
 function submitAdd() {
 	document.getElementById("addPop").style.opacity = "0";
 }
+
+function closeAdd() {
+	document.getElementById("addPop").style.opacity = "0";
+}
