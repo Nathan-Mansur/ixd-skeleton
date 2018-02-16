@@ -64,6 +64,20 @@ h3 {
     margin-top: 3px;
 }
 
+/*Add a Checkmark */
+.box::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
 .tasks {
     display: flex;
     flex-direction: row;
