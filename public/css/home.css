@@ -196,3 +196,15 @@ span {
     height: 30px;
 }
 
+#addPop {
+    position: fixed;
+    transform: translateY(10px);
+    border-radius: 7%;
+    width: 350px;
+    height: 350px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+}
