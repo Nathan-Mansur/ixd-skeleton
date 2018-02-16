@@ -30,7 +30,7 @@ function closeNav() {
 }
 
 function openAdd() {
-	document.getElementById("addPop").style.opacity = "1.0";
+	document.getElementById("addPop").style.opacity = "1";
 }
 
 function submitAdd() {
@@ -40,3 +40,5 @@ function submitAdd() {
 function closeAdd() {
 	document.getElementById("addPop").style.opacity = "0";
 }
+
+document.getElementById("tasklist").focus();

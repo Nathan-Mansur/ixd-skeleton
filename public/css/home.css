@@ -84,14 +84,6 @@ h3 {
     flex-direction: row;
 }
 
-
-div #tasklist {
-    overflow: scroll;
-    padding-left: 13px;
-    padding-right: 13px;
-    text-align: left;
-}
-
 .circle {
     z-index: 2;
     position: fixed;
@@ -171,9 +163,12 @@ span {
 }
 
 #tasklist {
-    width: 375px;
-    height: 400px;
-    background-color: rgba(0,0,0,.2)
+    height: 450px;
+    background-color: rgba(0,0,0,.2);
+    overflow: scroll;
+    padding-left: 13px;
+    padding-right: 13px;
+    text-align: left;
 }
 
 .form-check {
