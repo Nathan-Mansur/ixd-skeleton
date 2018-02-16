@@ -28,3 +28,11 @@ function openNav() {
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
 }
+
+function openAdd() {
+	document.getElementById("addPop").style.opacity = "1.0";
+}
+
+function submitAdd() {
+	document.getElementById("addPop").style.opacity = "0";
+}

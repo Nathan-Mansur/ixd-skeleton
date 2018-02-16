@@ -93,6 +93,7 @@ div #tasklist {
 }
 
 .circle {
+    z-index: 2;
     position: fixed;
     border-radius: 50%;
     width: 75px;
@@ -165,18 +166,6 @@ span {
     transform: translateY(5px);
 }
 
-.popup {
-    z-index: 5;
-    position: fixed;
-    border-radius: 10%;
-    width: 200px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    color: rgba(255, 255, 255, 1);
-    opacity: 1.0
-}
-
 .task {
     overflow: auto;
 }
@@ -197,6 +186,7 @@ span {
 }
 
 #addPop {
+    z-index: 2;
     position: fixed;
     transform: translateY(10px);
     border-radius: 7%;
