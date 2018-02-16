@@ -186,4 +186,13 @@ span {
     height: 400px;
 }
 
+.form-check {
+    margin-top: 20px; 
+    margin-right: 15px;
+}
+
+.form-check-input {
+    width: 30px;
+    height: 30px;
+}
 
