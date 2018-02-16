@@ -21,6 +21,10 @@ var newAccount = require('./routes/newAccount');
 var challenge = require('./routes/challenge');
 var addFriend = require('./routes/addFriend');
 var settings = require('./routes/settings');
+var group = require('./routes/group');
+
+//hard code 120 tasks
+var cogs120 = require('./routes/cogs120');
 
 var app = express();
 
@@ -57,6 +61,8 @@ app.get('/newAccount', newAccount.view);
 app.get('/challenge', challenge.view);
 app.get('/addFriend', addFriend.view);
 app.get('/settings', settings.view);
+app.get('/cogs120', cogs120.view);
+app.get('/group', group.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
