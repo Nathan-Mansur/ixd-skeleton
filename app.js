@@ -20,6 +20,7 @@ var home = require('./routes/home');
 var newAccount = require('./routes/newAccount');
 var challenge = require('./routes/challenge');
 var addFriend = require('./routes/addFriend');
+var settings = require('./routes/settings');
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.get('/home', home.view);
 app.get('/newAccount', newAccount.view);
 app.get('/challenge', challenge.view);
 app.get('/addFriend', addFriend.view);
+app.get('/settings', settings.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
