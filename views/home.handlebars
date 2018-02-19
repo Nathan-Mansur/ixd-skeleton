@@ -8,7 +8,7 @@
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/home.css" rel="stylesheet">
 
-	<link href="css/shepherd-theme-arrows.css" rel="stylesheet">
+	<link href="css/shepherd-theme-dark.css" rel="stylesheet">
 	<script src="js/tether.min.js"></script>
 	<script src="js/shepherd.min.js"></script>
 
@@ -29,7 +29,7 @@
 		<a href="settings">settings</a>
 	</div>
 
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+	<span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 	<div class="container text-center">
 		<h1 id="title">m.n.m.l.</h1>
@@ -54,9 +54,6 @@
 				<a href="#" class="indvTasks" style="text-decoration: none;">
 					<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
 					<div class="taskName"><h2>{{name}}</h2></div>
-					<!-- <div class="form-check" style="transform: translateX(10px);">
-						<input type="checkbox" class="form-check-input" style="transform: scale(1.5)">
-					</div> -->
 				</a>
 			</div>
 			{{/each}}

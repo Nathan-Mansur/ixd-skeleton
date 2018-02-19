@@ -75,13 +75,14 @@ function startTour() {
 	var tour;
 	tour = new Shepherd.Tour({
 	  defaults: {
-	    classes: 'shepherd-theme-arrows',
+	    classes: 'shepherd-theme-dark',
 	    scrollTo: true
 	  }
 	});
 
-	tour.addStep('example-step', {
-	text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
+	tour.addStep('step1', {
+	title: 'Welcome!',
+	text: 'Welcome to your favorite to-do app, mnml!',
  	attachTo: '#title bottom',
 	buttons: [
 		{
@@ -90,5 +91,66 @@ function startTour() {
 		}
 	  ]
 	});
+
+	tour.addStep('step2', {
+	title: 'Task List',
+	text: 'This is your to-do list! We\'ve intelligently sorted it by due date to make sure you finish each assignment on time!',
+	attachTo: '#tasklist bottom',
+	buttons: [
+		{
+			text: 'Next',
+			action: tour.next
+		}
+	]
+	});
+
+	tour.addStep('step3', {
+	title: 'Quote',
+	text: 'An inspirational quote to keep you motivated!',
+	attachTo: '#quote top',
+	buttons: [
+		{
+			text: 'Next',
+			action: tour.next
+		}
+	]
+	});
+
+	tour.addStep('step4', {
+	title: 'Add',
+	text: 'Add a task by clicking here!',
+	attachTo: '.circle top',
+	buttons: [
+		{
+			text: 'Next',
+			action: tour.next
+		}
+	]
+	});
+
+	tour.addStep('step5', {
+	title: 'Navigation',
+	text: 'Click here to see the different parts of the app including your social circle, adding a class, and more!',
+	attachTo: '#openNav bottom',
+	buttons: [
+		{
+			text: 'Next',
+			action: tour.next
+		}
+	]
+	});
+
+	tour.addStep('step6', {
+	title: 'Enjoy!',
+	text: 'Hope you enjoy using this app and are motivated to do work!',
+	attachTo: 'body bottom',
+	buttons: [
+		{
+			text: 'Next',
+			action: tour.next
+		}
+	]
+	});
+
 	tour.start();
 }
