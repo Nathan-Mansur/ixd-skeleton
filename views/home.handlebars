@@ -8,9 +8,13 @@
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/home.css" rel="stylesheet">
 
+	<link href="css/shepherd-theme-arrows.css" rel="stylesheet">
+	<script src="js/tether.min.js"></script>
+	<script src="js/shepherd.min.js"></script>
+
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/home.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/home.js"></script>
 </head>
 
 <body>
@@ -21,6 +25,7 @@
 		<a href="calendar">calendar</a>
 		<a href="social">social</a>
 		<a href="addClass">add class</a>
+		<a href="javascript:void(0)" onclick="closeNav(); startTour()">tutorial</a>
 		<a href="settings">settings</a>
 	</div>
 
@@ -45,12 +50,13 @@
 		<!-- Task List -->
 		<div id="tasklist">
 			{{#each tasks}}
-			<div class="task">
-				<a href="#" class="tasks">
-					<div class="form-check" style="transform: translateX(10px);">
+			<div class="task" id="{{id}}">
+				<a href="#" class="indvTasks" style="text-decoration: none;">
+					<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
+					<div class="taskName"><h2>{{name}}</h2></div>
+					<!-- <div class="form-check" style="transform: translateX(10px);">
 						<input type="checkbox" class="form-check-input" style="transform: scale(1.5)">
-					</div>
-					<div class="name"><h2>{{name}}</h2></div>
+					</div> -->
 				</a>
 			</div>
 			{{/each}}

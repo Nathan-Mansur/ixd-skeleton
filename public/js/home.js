@@ -20,6 +20,35 @@
 }, false);
 */
 
+// Call this function when the page loads (the "ready" event)
+$(document).ready(function() {
+
+	$('.task a').click(changeState);
+
+	// pull focus onto tasklist
+	document.getElementById("tasklist").focus();
+})
+
+function changeState(e) {
+	e.preventDefault();
+
+	// WHY IS THIS ONLY GETTING THE FIRST ONE T^T
+	var taskID = $(this).closest('.task').attr('id');
+	console.log(taskID);
+
+	// selectors
+	var taskSel = $('.task#' + taskID + ' a .taskName').children('h2');
+	var boxSel = $('.task#' + taskID + ' a .box').children('h2');
+
+	// strike through and checkbox
+	if (taskSel.css("text-decoration") === "line-through") {
+		taskSel.css("text-decoration", "none");
+		boxSel.html('&#9744;');
+	} else {
+		taskSel.css("text-decoration", "line-through");
+		boxSel.html('&#9745;');
+	}
+}
 
 function openNav() {
 	document.getElementById("mySidenav").style.width = "225px";
@@ -41,4 +70,25 @@ function closeAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
 }
 
-document.getElementById("tasklist").focus();
+function startTour() {
+	// shepherd touring
+	var tour;
+	tour = new Shepherd.Tour({
+	  defaults: {
+	    classes: 'shepherd-theme-arrows',
+	    scrollTo: true
+	  }
+	});
+
+	tour.addStep('example-step', {
+	text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
+ 	attachTo: '#title bottom',
+	buttons: [
+		{
+			text: 'Next',
+	    	action: tour.next
+		}
+	  ]
+	});
+	tour.start();
+}

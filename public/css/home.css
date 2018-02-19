@@ -53,12 +53,6 @@ h3 {
     margin: auto;
 }
 
-
-.container .tasks {
-    text-decoration: none;
-    color: white;
-}
-
 .box {
     margin-right: 10px;
     margin-top: 3px;
@@ -78,11 +72,6 @@ h3 {
     margin-left: 10px;
 }
 */
-
-.tasks {
-    display: flex;
-    flex-direction: row;
-}
 
 .circle {
     z-index: 2;
@@ -158,12 +147,13 @@ span {
     transform: translateY(5px);
 }
 
-.task {
-    overflow: auto;
+.indvTasks {
+    display: flex;
+    flex-direction: row;
 }
 
 #tasklist {
-    height: 450px;
+    height: 75vh;
     background-color: rgba(0,0,0,.2);
     overflow: scroll;
     padding-left: 13px;
@@ -192,4 +182,5 @@ span {
     right: 0;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.8);
+    transition: 0.3s;
 }
