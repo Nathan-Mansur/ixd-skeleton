@@ -49,3 +49,7 @@ span {
     font-size: 36px;
     margin-left: 50px;
 }
+
+#addClassNav {
+    background-color: blue;
+}

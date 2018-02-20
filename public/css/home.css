@@ -172,3 +172,7 @@ span {
 #cancelBtn {
     margin-top: 10px;
 }
+
+#homeNav {
+    background-color: blue;
+}

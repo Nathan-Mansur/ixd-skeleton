@@ -49,3 +49,7 @@ span {
     font-size: 36px;
     margin-left: 50px;
 }
+
+#calendarNav {
+    background-color: blue;
+}
