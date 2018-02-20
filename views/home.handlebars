@@ -22,6 +22,7 @@
 	<!-- Side Nav Bar -->
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="home">home</a>
 		<a href="calendar">calendar</a>
 		<a href="social">social</a>
 		<a href="addClass">add class</a>
@@ -41,9 +42,10 @@
 		<div id="addPop" class="popup">
 			<form id="addTaskForm" role="form" method="get" action="/add">
 	    	    <div class="form-group">
-	    	      <input type="text" class="form-control" id="name" placeholder="add a task" name="name">
+	    	      <input id="taskInput" type="text" class="form-control" id="name" placeholder="add a task" name="name" required>
 	    	    </div>
-	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input><input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
+	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onsubmit="submitAdd()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
     		</form>
 		</div>
 

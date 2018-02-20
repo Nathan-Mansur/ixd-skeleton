@@ -1,25 +1,3 @@
-// Add a "checked" symbol when clicking on a list item
-
-/* function addCheck() {
-	var checkmarkBox = document.getElement("addCheckmark");
-	if (checkmarkBox.style.visibility === "hidden") {
-		checkmarkBox.style.visibility = "visible";
-	}
-	else {
-		checkmarkBox.style.visibility = "hidden";
-	}
-	console.log("Here");
-} 
-	/* var list = document.querySelector('.box');
-
-	list.addEventListener('click', function(e) {
-  	if (e.target.tagName === '.box') {
-	  	console.log("Here");
-   		e.target.classList.toggle('checked');
-  }
-}, false);
-*/
-
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 
@@ -27,7 +5,16 @@ $(document).ready(function() {
 
 	// pull focus onto tasklist
 	document.getElementById("tasklist").focus();
+
+	/* Keep checkmarks when navigating pages 
+	var todoList = $('#tasklist').html();
+	localStorage.setItem('todoList', JSON.stringify(todoList));
+	var retrievedObject = localStorage.getItem('todoList');
+	document.getElementById('tasklist').innerHTML = JSON.parse(retrievedObject);
+	*/
 })
+
+
 
 function changeState(e) {
 	e.preventDefault();
@@ -67,6 +54,7 @@ function submitAdd() {
 }
 
 function closeAdd() {
+	document.getElementById("taskInput").placeholder = "add a task"; /* This isn't working */
 	document.getElementById("addPop").style.zIndex = "-1";
 }
 
@@ -154,3 +142,11 @@ function startTour() {
 
 	tour.start();
 }
+
+/*
+window.onload = function what() {
+	var todoList = $('#tasklist').html();
+	localStorage.setItem("todoList", todoList);
+	document.getElementById('tasklist').innerHTML = localStorage.getItem("todoList");
+}
+*/

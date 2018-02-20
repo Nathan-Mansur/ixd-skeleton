@@ -151,11 +151,19 @@ span {
     position: fixed;
     transform: translateY(10px);
     border-radius: 7%;
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 200px;
     left: 0;
     right: 0;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.8);
     transition: 0.3s;
+}
+
+#submitBtn {
+    margin-bottom: 10px;
+}
+
+#cancelBtn {
+    margin-top: 10px;
 }
