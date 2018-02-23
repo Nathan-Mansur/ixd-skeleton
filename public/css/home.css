@@ -194,3 +194,9 @@ span {
 #cancelBtn {
     margin-top: 10px;
 }
+
+#date {
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
