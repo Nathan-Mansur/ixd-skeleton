@@ -15,11 +15,9 @@ $(document).ready(function() {
 })
 
 
-
 function changeState(e) {
 	e.preventDefault();
 
-	// WHY IS THIS ONLY GETTING THE FIRST ONE T^T
 	var taskID = $(this).closest('.task').attr('id');
 	console.log(taskID);
 
@@ -35,6 +33,11 @@ function changeState(e) {
 		taskSel.css("text-decoration", "line-through");
 		boxSel.html('&#9745;');
 	}
+}
+
+function openEdit() {
+	var editButton = $('a#editButton div').children('h2');
+	
 }
 
 function openNav() {
@@ -83,7 +86,7 @@ function startTour() {
 	tour.addStep('step2', {
 	title: 'Task List',
 	text: 'This is your to-do list! We\'ve intelligently sorted it by due date to make sure you finish each assignment on time!',
-	attachTo: '#tasklist bottom',
+	attachTo: '#tasklist top',
 	buttons: [
 		{
 			text: 'Next',

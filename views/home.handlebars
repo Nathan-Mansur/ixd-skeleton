@@ -22,19 +22,24 @@
 	<!-- Side Nav Bar -->
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a id="homeNav">home</a>
-		<a href="calendar">calendar</a>
-		<a href="social">social</a>
-		<a href="addClass">add class</a>
-		<a href="javascript:void(0)" onclick="closeNav(); startTour()">tutorial</a>
-		<a href="settings">settings</a>
+		<a id="current" class="naviBut">home</a>
+		<a href="calendar" class="naviBut">calendar</a>
+		<a href="social" class="naviBut">social</a>
+		<a href="addClass" class="naviBut">add class</a>
+		<a href="javascript:void(0)" class="naviBut" onclick="closeNav(); startTour()">tutorial</a>
+		<a href="settings" class="naviBut">settings</a>
 	</div>
 
 	<span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
+	<!-- Edit Icon (Pencil) -->
+	<a href="javascript:void(0)" id="editButton" onclick="openEdit()">
+		<div class="edit text-right"><h2 style="transform: scale(1.4);">&#9998;</h2></div>
+	</a>
+
 	<div class="container text-center">
 		<h1 id="title">m.n.m.l.</h1>
-		<div style="height: 120px"></div><hr class="topbar">
+		<div style="height: 20vh"></div><hr class="topbar">
 		
 		<h3 class="todays">Today's Tasks</h3>
 
@@ -60,9 +65,6 @@
 
 					<!-- Task -->
 					<div class="taskName"><h2>{{name}}</h2></div>
-
-					<!-- Edit Icon (Pencil) -->
-					<div class="edit text-right"><h2 style="transform: translateY(-4px) scale(1.4);">&#9998;</h2></div>
 				</a>
 			</div>
 			{{/each}}

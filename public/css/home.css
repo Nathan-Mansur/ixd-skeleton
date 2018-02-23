@@ -45,9 +45,19 @@ h3 {
     margin: auto;
 }
 
+#current {
+    background-color: #256C80;
+    color: white;
+}
+
+.naviBut:hover {
+    color: white;
+    background-color: #006331;
+}
+
 .todays {
     position: fixed;
-    top: 90px;
+    top: 14.5vh;
     left: 0;
     right: 0;
     margin: auto;
@@ -59,8 +69,10 @@ h3 {
 }
 
 .edit {
-    margin-left: 15px;
-    margin-top: 3px;
+    z-index: 1;
+    position: fixed;
+    margin-top: 7px;
+    right: 30px;
 }
 
 .circle {
@@ -97,6 +109,12 @@ span {
     color: silver;
     margin-top: 20px;
     margin-left: 30px;
+
+    transition: 0.3s;
+}
+
+#openNav:hover {
+    color: white;
 }
 
 .sidenav {
@@ -131,6 +149,10 @@ span {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.closebtn:hover {
+    color: white;
 }
 
 .closebtn {
@@ -171,8 +193,4 @@ span {
 
 #cancelBtn {
     margin-top: 10px;
-}
-
-#homeNav {
-    background-color: blue;
 }
