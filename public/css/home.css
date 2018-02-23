@@ -155,10 +155,6 @@ span {
     color: white;
 }
 
-.closebtn {
-    transform: translateY(5px);
-}
-
 .indvTasks {
     display: flex;
     flex-direction: row;
