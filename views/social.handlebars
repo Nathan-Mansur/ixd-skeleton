@@ -30,12 +30,28 @@
     <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
     <div class="container text-center">
-        <h1>check your</h1>
-        <h1>social circle here!</h1>
+        <h1>public lists</h1>
+        <h4>work on your to-do lists with friends!</h4>
+
+        <!-- 
+        the original buttons on "social" page
 
         <input type="button" class="btn btn-primary center" value="challenge friends" onclick="location.href = 'challenge';">
 
-        <input type="button" class="btn btn-primary center" value="group tasks" onclick="location.href = 'group';">
+        <input type="button" class="btn btn-primary center" value="group tasks" onclick="location.href = 'group';"> -->
+
+
+       {{#each publicLists}}
+            <a href="publicList" class="btn btn-info btn-space" role="button"><h2>{{title}}</h2></a>
+       {{/each}}
+
+
+        <!-- Add button -->
+        <a href="javascript:void(0)" onclick="openAdd()">
+            <div class="circle"><p style="transform: translateY(2px); color: white; font-size: 25px">+</p></div>
+        </a>
+
     </div>
+
 </body>
 </html>

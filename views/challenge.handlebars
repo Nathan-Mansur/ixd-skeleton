@@ -21,18 +21,29 @@
 		</div>	
 
 		<br>
-		<h4 style = "color: white" align="center">challenge friends to see who can complete the tasks first!</h4>
-		<!--hard code public list -->
-		<div id="publicList">
-			{{#each publicLists}}
-				<div class="name"><h2>{{name}}</h2></div>
-			{{/each}}
+		<h4 style = "color: white" align="center">click on a list to share it with a friend!</h4>
+		
+		<!-- Popup button -->
+		<div id="addPop" class="popup">
+			<form id="addTaskForm" role="form" method="get" action="/add">
+	    	    <div class="form-group">
+	    	      <input id="listInput" type="text" class="form-control" id="name" placeholder="make a new list to share" name="name" required>
+	    	    </div>
+	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onsubmit="submitAdd()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
+    		</form>
 		</div>
-
-
+		
+		<!-- list all the public lists-->
+		{{#each challenge}}
  		<div class="container">
- 			<a href="addFriend" class="btn btn-info btn-space" role="button"><h2 align="center">cogs 120</h2></a>
+ 			<a href="addFriend" class="btn btn-info btn-space" role="button"><h2>{{title}}</h2></a>
  		</div>
+ 		{{/each}}
+
+
+		
+ 	
 
  		<!-- Add button -->
 		<a href="javascript:void(0)" onclick="openAdd()">

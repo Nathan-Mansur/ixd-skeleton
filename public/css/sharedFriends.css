@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+
+    background: url(images/desert.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.topbar {
+    position: fixed;
+    /* top: 80px; */
+    left: 10px;
+    right: 10px;
+    margin: auto;
+}

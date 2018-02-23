@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>cogs 120</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/publicList.css" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/publicList.js"></script>
+</head>
+
+<body>
+	<!-- Side Nav Bar -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home">home</a>
+        <a href="calendar">calendar</a>
+        <a id="socialNav">social</a>
+        <a href="addClass">add class</a>
+        <a href="javascript:void(0)" onclick="closeNav(); startTour()">tutorial</a>
+        <a href="settings">settings</a>
+    </div>
+
+    <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+	<div class="container text-center">
+		<h1 id="title">cogs 120</h1>
+		<div style="height: 70px"></div><hr class="topbar">
+		
+		<!-- invite -->
+		<input type="button" class="btn btn-primary center" value="invite friends to work with you!" onclick="location.href = 'sharedFriends';">
+
+		<!-- Popup button -->
+		<div id="addPop" class="popup">
+			<form id="addTaskForm" role="form" method="get">
+	    	    <div class="form-group">
+	    	     	<input type="text" class="form-control" id="name" placeholder="add a task" name="name">
+	    	    </div>
+	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
+    		</form>
+		</div>
+
+		<!-- Task List -->
+		<div id="tasklist">
+			{{#each cogs120}}
+			<div class="task">
+				<a href="#" class="tasks">
+					<div class="form-check" style="transform: translateX(5px);">
+						<input type="checkbox" class="form-check-input" style="transform: scale(1.5)">
+					</div>
+					<div class="name"><h2>{{name}}</h2></div>
+				</a>
+			</div>
+			{{/each}}
+		</div>
+
+		<!-- Add button -->
+		<a href="javascript:void(0)" onclick="openAdd()">
+			<div class="circle"><p style="transform: translateY(2px); color: white; font-size: 25px">+</p></div>
+		</a>
+</div>
+</body>
+</html>

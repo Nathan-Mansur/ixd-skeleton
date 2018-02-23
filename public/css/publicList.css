@@ -1,0 +1,202 @@
+body, html {
+    height: 100%;
+
+    background: url(images/2DForest.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.btn {
+    z-index: 0;
+    margin: 20px 30px 20px 0px;
+    margin: 20px;
+    width: 200px;
+}
+
+h1 {
+    z-index: 0;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+h2, h3 {
+    color: white;
+}
+
+h3 {
+    font-size: 15pt;
+    color: white;
+}
+
+#title {
+    top: 21px;
+}
+
+.topbar {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    margin: auto;
+}
+
+.todays {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.container .tasks {
+    text-decoration: none;
+    color: white;
+}
+
+.box {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+/*Add a Checkmark */
+/* .box:before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+*/
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+}
+
+
+div #tasklist {
+    overflow: scroll;
+    padding-left: 13px;
+    padding-right: 13px;
+    text-align: left;
+}
+
+.circle {
+    z-index: 2;
+    position: fixed;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    right: 25px;
+    bottom: 25px;
+    background: #E84F4F;
+    box-shadow: 0px 0px 10px 3px #444444;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quote {
+    color: white;
+    position: fixed;
+    left: 15px;
+    bottom: 10px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+span {
+    z-index: 1;
+    position: fixed;
+    color: silver;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.93);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: silver;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.closebtn {
+    transform: translateY(5px);
+}
+
+.task {
+    overflow: auto;
+}
+
+#tasklist {
+    width: 375px;
+    height: 400px;
+    background-color: rgba(0,0,0,.2)
+}
+
+.form-check {
+    margin-top: 20px; 
+    margin-right: 25px;
+}
+
+.form-check-input {
+    width: 30px;
+    height: 30px;
+}
+
+#addPop {
+    z-index: 2;
+    position: fixed;
+    transform: translateY(10px);
+    border-radius: 7%;
+    width: 350px;
+    height: 350px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+}
+

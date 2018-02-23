@@ -19,12 +19,16 @@ var social = require('./routes/social');
 var home = require('./routes/home');
 var newAccount = require('./routes/newAccount');
 var challenge = require('./routes/challenge');
-var addFriend = require('./routes/addFriend');
+var sharedFriends = require('./routes/sharedFriends');
 var settings = require('./routes/settings');
 var group = require('./routes/group');
+var addFriend = require('./routes/addFriend');
 
 //hard code 120 tasks
-var cogs120 = require('./routes/cogs120');
+//var cogs120 = require('./routes/cogs120');
+
+//page taking you to the publicList you click
+var publicList = require('./routes/publicList');
 
 var app = express();
 
@@ -59,10 +63,12 @@ app.get('/social', social.view);
 app.get('/home', home.view);
 app.get('/newAccount', newAccount.view);
 app.get('/challenge', challenge.view);
-app.get('/addFriend', addFriend.view);
+app.get('/sharedFriends', sharedFriends.view);
 app.get('/settings', settings.view);
-app.get('/cogs120', cogs120.view);
+//app.get('/cogs120', cogs120.view);
 app.get('/group', group.view);
+app.get('/publicList', publicList.view);
+app.get('/addFriend', addFriend.add);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

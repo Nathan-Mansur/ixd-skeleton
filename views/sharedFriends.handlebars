@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>m.n.m.l. add friend</title>
+    <title>m.n.m.l. shared with friend</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -15,15 +15,14 @@
 
 <body>
     <div class="container">
-        <!-- Enter friend's email (username) to share list -->
-        <div id="navigation">
-            <h4 align="left"><a href="/publicList">back</a></h4>
-        </div>
-
-        <label for="email"><h3 align="left">enter friend's email to share your list!</h3></label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="name@something.com" action="/addFriend">
-        <br>
-        <input type="button" class="btn btn-primary center" value="add!" onclick="location.href = 'publicList';">
+        <!--Adding another friend to share list with-->
+        <form id="addFriendForm" role="form" method="get" action="/addFriend">
+            <div class="form-group">
+                <label for="email"><h3 align="left">invite friends to share your list!</h3></label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="name@something.com" name="email">
+            </div>
+            <input type="button" class="btn btn-primary center" value="add!"> <!--onclick="location.href = 'publicList';"-->
+        </form>
 
         <br> <br>
 
