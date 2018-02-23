@@ -2,31 +2,38 @@
     "tasks": [
         {
             "id": 1,
-            "name": "math 18: 2-500 even"
+            "name": "math 18: 2-500 even",
+            "time": "1:00 pm"
         },
         {
             "id": 2,
-            "name": "cogs 107B: memorize terms for midterm"
+            "name": "cogs 107B: memorize terms for midterm",
+            "time": "2:30 pm"
         },
         {
             "id": 3,
-            "name": "cogs 120: finish prototyping"
+            "name": "cogs 120: finish prototyping",
+            "time": "3:00 pm"
         },
         {
             "id": 4,
-            "name": "dsgn 100: finish designs"
+            "name": "dsgn 100: finish designs",
+            "time": "5:00 pm"
         },
         {
             "id": 5,
-            "name": "cse 100: finish pa2 checkpoint"
+            "name": "cse 100: finish pa2 checkpoint",
+            "time": "7:00 pm"
         },
         {
             "id": 6,
-            "name": "clean my room"
+            "name": "clean my room",
+            "time": "8:00 pm"
         },
         {
             "id": 7,
-            "name": "do my laundry"
+            "name": "do my laundry",
+            "time": "9:00 pm"
         }
     ]
 }

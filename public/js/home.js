@@ -33,13 +33,16 @@ function changeState(e) {
 	// selectors
 	var taskSel = $('.task#' + taskID + ' a .taskName').children('h2');
 	var boxSel = $('.task#' + taskID + ' a .box').children('h2');
+	var timeSel = $('.task#' + taskID + ' a .time').children('h3');
 
 	// strike through and checkbox
 	if (taskSel.css("text-decoration") === "line-through") {
 		taskSel.css("text-decoration", "none");
+		timeSel.css("text-decoration", "none");
 		boxSel.html('&#9744;');
 	} else {
 		taskSel.css("text-decoration", "line-through");
+		timeSel.css("text-decoration", "line-through");
 		boxSel.html('&#9745;');
 	}
 }
