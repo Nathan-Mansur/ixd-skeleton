@@ -62,7 +62,7 @@ function changeState(e) {
 
 function openEdit() {
 	var editButton = $('a#editButton div').children('h2');
-	
+	$('.delete h2').style.display = "inline";
 }
 
 function openNav() {

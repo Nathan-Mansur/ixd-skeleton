@@ -200,3 +200,8 @@ span {
 .time {
     margin: -15px 0px 0px 0px;
 }
+
+.delete h2 {
+    color: red;
+    display: none;
+}
