@@ -14,6 +14,7 @@
   "dependencies": {
     "@google-cloud/language": "^1.1.0",
     "@google-cloud/storage": "^1.6.0",
+    "aws-sdk": "^2.202.0",
     "express": "3.x",
     "express3-handlebars": "*",
     "mongodb": "*",

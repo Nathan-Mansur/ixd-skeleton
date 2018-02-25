@@ -17,7 +17,7 @@ const language = require('@google-cloud/language');
 const client = new language.LanguageServiceClient();
 
 // The text to analyze
-const text = 'Hello, world!';
+const text = 'cse100 pa2 due friday 11:59pm, start tomorrow';
 
 const document = {
   content: text,
@@ -37,3 +37,40 @@ client
   .catch(err => {
     console.error('ERROR:', err);
   });
+
+// Detects the syntax of the text
+client
+  .analyzeSyntax({document: document})
+  .then(results => {
+    const syntax = results[0];
+
+    console.log(`Text: ${text}`);
+    console.log(`Tokens: ${syntax.tokens[4].text.content}`);
+  })
+  .catch(err => {
+    console.error('ERROR:', err);
+  });
+
+// aws comprehend
+var AWS = require('aws-sdk');
+
+AWS.config.apiVersions = {
+  comprehend: '2017-11-27',
+  // other service API versions
+};
+
+AWS.config.update({region:'us-west-2'});
+
+var comprehend = new AWS.Comprehend();
+
+var params = {
+  TextList: [ /* required */
+    '​Start CSE100 PA2 by Tomorrow at 8am',
+    /* more text */
+  ]
+};
+
+comprehend.batchDetectDominantLanguage(params, function (err, data) {
+  if (err) console.log(err, err.stack);             // an error occurred
+  else     console.log(data.ResultList[0]);       // successful response
+});
