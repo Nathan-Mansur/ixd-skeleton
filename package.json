@@ -17,6 +17,7 @@
     "aws-sdk": "^2.202.0",
     "express": "3.x",
     "express3-handlebars": "*",
+    "file-system": "^2.2.2",
     "mongodb": "*",
     "mongoose": "*",
     "tether-shepherd": "^1.8.1",
