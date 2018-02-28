@@ -41,5 +41,13 @@
 		</form>
 
 	</div>
+	<script type="text/javascript">
+		function matchPassword() {
+			if ($("#inputPassword").val() != $("#inputPasswordConfirm").val()) {
+				alert("Password not match!");
+				return;
+			}
+		}
+	</script>
 </body>
 </html>

@@ -11,7 +11,6 @@ exports.addTask = function(req, res){
         'time': req.query.time
     }
 
-
     data.tasks.push(newTask);
     res.render('home', {
         'tasks': data.tasks

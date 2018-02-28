@@ -5,8 +5,19 @@
 var data = require("../tasks.json");
 
 exports.view = function(req, res){
+
+  // checking user
+
+  var currentUser = "123456abcdef";
+  var pendingData = [];
+  for (i = 0; i <  data.tasks.size(); i++) {
+      if (data.tasks[i].userID == currentUser ){
+          pendingData.push(data.tasks[i]);
+      }
+  }
+
   res.render('home', {
-      'tasks': data.tasks
+      'tasks': pendingData
   });
 };
 

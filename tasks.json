@@ -3,37 +3,44 @@
         {
             "id": 1,
             "name": "math 18: 2-500 even",
-            "time": "1:00 pm"
+            "time": "1:00 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 2,
             "name": "cogs 107B: memorize terms for midterm",
-            "time": "2:30 pm"
+            "time": "2:30 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 3,
             "name": "cogs 120: finish prototyping",
-            "time": "3:00 pm"
+            "time": "3:00 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 4,
             "name": "dsgn 100: finish designs",
-            "time": "5:00 pm"
+            "time": "5:00 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 5,
             "name": "cse 100: finish pa2 checkpoint",
-            "time": "7:00 pm"
+            "time": "7:00 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 6,
             "name": "clean my room",
-            "time": "8:00 pm"
+            "time": "8:00 pm",
+            "userID": "123456abcdef"
         },
         {
             "id": 7,
             "name": "do my laundry",
-            "time": "9:00 pm"
+            "time": "9:00 pm",
+            "userID": "123456abcdef"
         }
     ]
 }
