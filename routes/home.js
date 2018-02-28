@@ -10,6 +10,7 @@ exports.view = function(req, res){
   });
 };
 
+
 // // Imports the Google Cloud client library
 // const language = require('@google-cloud/language');
 

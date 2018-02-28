@@ -14,6 +14,14 @@ $(document).ready(function() {
 	*/
 })
 
+// Keeps the new added tasks across webpages
+fs = require('fs');
+var m = JSON.parse(fs.readFileSync('tasks.json').toString());
+m.forEach(function(p){
+    p.name= m.name;
+});
+fs.writeFile('tasks.json', JSON.stringify(m));
+
 // Loads date
 window.onload = function date(){
 	n = new Date();
