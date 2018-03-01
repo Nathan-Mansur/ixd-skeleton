@@ -22,7 +22,6 @@
         <a id="calendarNav">calendar</a>
         <a href="social">social</a>
         <a href="addClass">add class</a>
-        <a href="javascript:void(0)" onclick="closeNav(); startTour()">tutorial</a>
         <a href="settings">settings</a>
     </div>
 
@@ -36,9 +35,6 @@
     <span class="day-view-exit" id="day-view-exit">&times;</span>
     <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
     <div class="day-view-content">
-      <div class="day-highlight">
-        You <span class="day-events" id="day-events">had no events for today</span>. &nbsp; <span tabindex="0" onkeyup="if(event.keyCode != 13) return; this.click();" class="day-events-link" id="add-event" data-date>Add a new event?</span>
-      </div>
       <div class="day-add-event" id="add-day-event-box" data-active="false">
         <div class="row">
           <div class="half">
@@ -94,7 +90,7 @@
     </div>
   </div>
   <div class="footer">
-    <span><span id="footer-date" class="footer__link">Today is May 30</span></span>    
+    <span><span id="footer-date" class="footer__link"></span></span>    
   </div>
 </div>
   

@@ -64,6 +64,8 @@ exports.view = function(req, res){
 //   });
 
 // aws comprehend
+/*
+
 var AWS = require('aws-sdk');
 
 AWS.config.apiVersions = {
@@ -77,8 +79,10 @@ var comprehend = new AWS.Comprehend();
 
 var params = {
   TextList: [ /* required */
-    '​Start CSE100 PA2 by Tomorrow at 8am',
+  //  '​Start CSE100 PA2 by Tomorrow at 8am',
     /* more text */
+
+    /*
   ]
 };
 
@@ -86,3 +90,5 @@ comprehend.batchDetectDominantLanguage(params, function (err, data) {
   if (err) console.log(err, err.stack);             // an error occurred
   else     console.log(data.ResultList[0]);       // successful response
 });
+
+*/
