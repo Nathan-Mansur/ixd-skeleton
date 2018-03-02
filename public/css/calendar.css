@@ -8,12 +8,14 @@ body, html {
  	background-size: cover;
 }
 
-#openNav span {
+span {
     z-index: 1;
     position: fixed;
     color: silver;
     margin-top: 20px;
     margin-left: 30px;
+
+    transition: 0.3s;
 }
 
 .sidenav {
