@@ -16,6 +16,10 @@ span {
     margin-left: 30px;
 }
 
+.title {
+    margin-bottom: 10px;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -72,4 +76,7 @@ button {
     width: 300px;
     height: 75px;
     margin: 20px;
+    background-color: #4CB9DA;
+    color: white;
+    font-size: 30px;
 }
