@@ -162,6 +162,14 @@ span {
     margin-left: 50px;
 }
 
+span {
+    z-index: 1;
+    position: fixed;
+    color: silver;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
 .closebtn {
     transform: translateY(5px);
 }
