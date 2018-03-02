@@ -155,6 +155,17 @@ span {
     color: white;
 }
 
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-handle {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
 .indvTasks {
     display: flex;
     flex-direction: row;
@@ -203,5 +214,5 @@ span {
 
 .delete h2 {
     color: red;
-    display: none;
+    display: inline;
 }

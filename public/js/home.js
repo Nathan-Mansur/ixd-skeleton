@@ -2,6 +2,7 @@
 $(document).ready(function() {
 
 	$('.task a').click(changeState);
+	$('a#editButton').click(openEdit);
 
 	// pull focus onto tasklist
 	document.getElementById("tasklist").focus();
@@ -24,7 +25,7 @@ window.onload = function date(){
 }
 
 // Date chooser on Popup
- $(document).ready(function(){
+ $(document).ready(function() { 
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
@@ -34,7 +35,11 @@ window.onload = function date(){
         autoclose: true,
       };
       date_input.datepicker(options);
-    })
+})
+
+$(".draggable").click(function() {
+   $(this).insertBefore($(this).prev()); 
+});
 
 
 function changeState(e) {
@@ -61,8 +66,21 @@ function changeState(e) {
 }
 
 function openEdit() {
-//	var editButton = $('#editButton div').children('h2');
-	$('.delete h2').style.display = "inline";
+
+	// selectors
+	var boxSel = $('.task a .box').children('h2');
+	var handleSel = $('.task .my-handle').children('h2');
+
+	// change box and line
+	if (boxSel.css("color") === "rgb(255, 0, 0)") {
+		boxSel.html('&#9744;');
+		boxSel.css("color", "white");
+		handleSel.html('');
+	} else {
+		boxSel.html('&#8722;');
+		boxSel.css("color", "red");
+		handleSel.html('::');
+	}
 }
 
 function openNav() {

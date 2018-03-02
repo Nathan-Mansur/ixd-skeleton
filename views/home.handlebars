@@ -14,6 +14,14 @@
 	<script src="js/tether.min.js"></script>
 	<script src="js/shepherd.min.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script>
+	  $( function() {
+	    $( ".draggable" ).sortable();
+	    $( ".draggable" ).disableSelection();
+	  } );
+	</script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/home.js"></script>
 	<!-- Bootstrap Date-Picker Plugin -->
@@ -36,7 +44,7 @@
 	<span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 	<!-- Edit Icon (Pencil) -->
-	<a href="javascript:void(0)" id="editButton" onclick="openEdit()">
+	<a href="javascript:void(0)" id="editButton">
 		<div class="edit text-right"><h2 style="transform: scale(1.4);">&#9998;</h2></div>
 	</a>
 
@@ -83,26 +91,30 @@
     		</form>
 		</div>
 
-		<!-- Task List -->
-		<div id="tasklist">
+		<ul id="tasklist">
 			{{#each tasks}}
-			<div class="task" id="{{id}}">
-				<a href="#" class="indvTasks" style="text-decoration: none;">
+			<li class="draggable">
+				<div class="task" id="{{id}}">
+					<div>
+						<a href="#" class="indvTasks" style="text-decoration: none;">
 
-					<!-- Delete Mark -->
-					<div class="delete"><h2>&#8722;</h2></div>
-					<!-- Checkmark Box -->
-					<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
+							<!-- Delete Mark -->
+							<!-- <div class="delete"><h2>&#8722;</h2></div> -->
+							<!-- Checkmark Box -->
+							<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
 
-					<!-- Task -->
-					<div class="taskName col-sm-12 "><h2>{{name}}</h2>
-					<!-- Time -->
-					<div class="time col-sm-12"><h3>{{time}}</h3></div>
-					</div>	
-				</a>
-			</div>
+							<!-- Task -->
+							<div class="taskName col-sm-12 "><h2>{{name}}</h2>
+							<!-- Time -->
+							<div class="time col-sm-12"><h3>{{time}}</h3></div>
+							</div>	
+						</a>
+					</div>
+					<div class="my-handle"><h2></h2></div>
+				</div>
+			</li>
 			{{/each}}
-		</div>
+		</ul>
 
 		<!-- Add button -->
 		<a href="javascript:void(0)" onclick="openAdd()">
