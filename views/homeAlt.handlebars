@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>m.n.m.l.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/shepherd-theme-dark.css" rel="stylesheet">
+    <!-- Bootstrap Date-Picker Plugin -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script src="js/tether.min.js"></script>
+    <script src="js/shepherd.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        $( ".draggable" ).sortable();
+        $( ".draggable" ).disableSelection();
+      } );
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/home.js"></script>
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Side Nav Bar -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a id="current" class="naviBut">home</a>
+        <a href="calendar" class="naviBut">calendar</a>
+        <a href="social" class="naviBut">social</a>
+        <a href="addClass" class="naviBut">add class</a>
+        <a href="javascript:void(0)" class="naviBut" onclick="closeNav(); startTour()">tutorial</a>
+        <a href="settings" class="naviBut">settings</a>
+    </div>
+
+    <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <!-- Edit Icon (Pencil) -->
+    <a href="javascript:void(0)" id="editButton">
+        <div class="edit text-right"><h2 style="transform: scale(1.4);">&#9998;</h2></div>
+    </a>
+
+    <div class="container text-center">
+        <h1 id="title">m.n.m.l.</h1>
+        <div style="height: 20vh"></div><hr class="topbar">
+        
+        <h3 class="todays">today's tasks</h3>
+        <h4 id="date"></h4>
+
+        <!-- Popup button -->
+        <div id="addPop" class="popup">
+            <form id="addTaskForm" role="form" method="get" action="/addShift">
+                <!-- Input Task -->
+                <div class="form-group">
+                    <label style="margin-top: 10px;">task</label>
+                    <input id="taskInput" type="text" class="form-control" id="name" placeholder="add a task" name="name" required>
+                </div>
+                <!-- Input Date 
+                <div class="form-group"> 
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+                -->
+                <!-- Time Input -->
+                <div class="form-group">
+                    <label style="margin-top: 10px;">time</label>
+                    <input id="timeInput" type="text" class="form-control" placeholder="2:00pm" name="time" required>
+                </div>
+
+                <!-- AM/PM in Progress
+                <div>
+                    <form class="form-inline">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">am/pm</label>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                            <option value="1">am</option>
+                            <option value="2">pm</option>
+                          </select>
+                </div>
+            -->
+
+                <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onsubmit="submitAdd()"></input>
+                <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
+            </form>
+        </div>
+
+        <ul id="tasklist">
+            {{#each tasks}}
+            <li class="draggable">
+                <div class="task" id="{{id}}">
+                    <div>
+                        <a href="#" class="indvTasks" style="text-decoration: none;">
+
+                            <!-- Delete Mark -->
+                            <!-- <div class="delete"><h2>&#8722;</h2></div> -->
+                            <!-- Checkmark Box -->
+                            <div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
+
+                            <!-- Task -->
+                            <div class="taskName col-sm-12 "><h2>{{name}}</h2>
+                            <!-- Time -->
+                            <div class="time col-sm-12"><h3>{{time}}</h3></div>
+                            </div>    
+                        </a>
+                    </div>
+                    <div class="my-handle"><h2></h2></div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
+        <!-- Add button -->
+        <a href="javascript:void(0)" onclick="openAdd()">
+            <div class="circle"><p style="transform: translateY(2px); color: white; font-size: 25px">+</p></div>
+        </a>
+
+        <!-- Quote on the bottom -->
+        <h4 id="quote">"you can do it!" - mnml</h4>
+
+    </div>
+</body>
+</html>
