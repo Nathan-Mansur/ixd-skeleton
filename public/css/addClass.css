@@ -1,7 +1,7 @@
 body, html {
 	height: 100%;
 
-	background: url(images/Mountains.png) no-repeat center center fixed; 
+	background: url(images/2DLighthouse.png) no-repeat center center fixed; 
  	-webkit-background-size: cover;
  	-moz-background-size: cover;
  	-o-background-size: cover;
@@ -62,4 +62,14 @@ span {
 
 #addClassNav {
     background-color: blue;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    width: 300px;
+    height: 75px;
+    margin: 20px;
 }
