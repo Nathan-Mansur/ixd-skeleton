@@ -14,7 +14,21 @@
 </head>
 
 <body>
-<div class="container text-center">
+
+	<!-- Side Nav Bar -->
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a id="current" class="naviBut">home</a>
+		<a href="calendar" class="naviBut">calendar</a>
+		<a href="social" class="naviBut">social</a>
+		<a href="addClass" class="naviBut">add class</a>
+		<a href="javascript:void(0)" class="naviBut" onclick="closeNav(); startTour()">tutorial</a>
+		<a href="settings" class="naviBut">settings</a>
+	</div>
+
+	<span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+	
+	<div class="container text-center">
 		<h4 align="left"><a href="/social">back</a></h4>
 		<h1 id="title">cogs 120</h1>
 		<div style="height: 120px"></div><hr class="topbar">
