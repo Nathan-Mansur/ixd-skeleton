@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 function checkTask() {
 	console.log("finished task");
-	gtag("send", "event", "task", "finish");
+	ga("send", "event", "task", "finish");
 }
 
 // Loads date
@@ -45,7 +45,7 @@ window.onload = function date(){
 })
 
 $(".draggable").click(function() {
-   $(this).insertBefore($(this).prev()); 
+   $(this).insertBefore($(this).prev());
 });
 
 
