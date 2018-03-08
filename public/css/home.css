@@ -6,6 +6,18 @@ body, html {
  	-moz-background-size: cover;
  	-o-background-size: cover;
  	background-size: cover;
+
+    font-family: 'museo_sans_300';
+}
+
+@font-face {
+    font-family: 'museo_sans_100';
+    src: url('fonts/museo_sans_100.otf');
+}
+
+@font-face {
+    font-family: 'museo_sans_300';
+    src: url('fonts/museo_sans_300.otf');
 }
 
 .btn {
@@ -22,15 +34,24 @@ h1 {
     left: 0;
     right: 0;
     margin: auto;
+
+    font-family: 'museo_sans_300';
 }
 
 h2, h3 {
     color: white;
+
+    font-family: 'museo_sans_300';
 }
 
 h3 {
     font-size: 15pt;
     color: white;
+}
+
+h4 {
+    font-size: 12pt;
+    font-family: 'museo_sans_300';
 }
 
 #title {
@@ -99,8 +120,8 @@ h3 {
 }
 
 body {
-    font-family: "Lato", sans-serif;
     transition: background-color .5s;
+    font-family: 'museo_sans_300';
 }
 
 span {

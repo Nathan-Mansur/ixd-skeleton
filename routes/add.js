@@ -9,7 +9,7 @@ exports.addTask = function(req, res) {
     var taskId = "";
 
     for (i = 0; i < req.query.name.length; i++) {
-        if (req.query.name[i] != " " && req.query.name[i] != ":")
+        if (req.query.name[i] != " " && req.query.name[i] != ":" && req.query.name[i] != "\'")
             taskId += req.query.name[i];
     }
 
