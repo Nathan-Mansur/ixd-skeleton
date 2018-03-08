@@ -29,6 +29,17 @@
         <h1>add a class</h1>
     </div>
 
+    {{#each classes}}
+        <div class="buttons" id="{{id}}">
+            <div>
+                <form role="form" method="get" action="{{action}}">
+                    <button id="{{buttonID}}">{{class}}</button>
+                </form>
+            </div>
+        </div>
+    {{/each}}
+    
+    <!--
     <div class="buttons">
 
         <form role="form" method="get" action="/addClassCogs14B">
@@ -46,7 +57,7 @@
         <form role="form" method="get" action="/addClassDsgn100">
             <button id="dsgn100">dsgn 100</button>
         </form>
-
+-->
         
 
     </div>
