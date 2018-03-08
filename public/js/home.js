@@ -4,6 +4,8 @@ $(document).ready(function() {
 	$('.task a').click(changeState);
 	$('a#editButton').click(openEdit);
 
+	$('.task a').click(checkTask);
+
 	// pull focus onto tasklist
 	document.getElementById("tasklist").focus();
 
@@ -14,6 +16,11 @@ $(document).ready(function() {
 	document.getElementById('tasklist').innerHTML = JSON.parse(retrievedObject);
 	*/
 })
+
+function checkTask() {
+	console.log("finished task");
+	gtag("send", "event", "task", "finish");
+}
 
 // Loads date
 window.onload = function date(){
