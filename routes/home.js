@@ -21,7 +21,7 @@ exports.view = function(req, res){
   });
 };
 
-var data = require("../tasks.json");
+var data = require("../tasksAlt.json");
 
 exports.viewAlt = function(req, res){
 
