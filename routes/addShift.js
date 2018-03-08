@@ -2,7 +2,7 @@
  * Add task
  */
 
-var data = require("../tasks.json");
+var data = require("../tasksAlt.json");
 
 exports.addTask = function(req, res) {
 

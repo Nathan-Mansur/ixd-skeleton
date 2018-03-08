@@ -11,7 +11,7 @@ function closeNav() {
 }
 
 function disableButton() {
-	$('.buttons form').submit();
+	$(this).closest('form').submit();
 	console.log("Here");
 	$(this).closest('button')[0].disabled = true;
 	console.log(this.disabled);
