@@ -1,4 +1,4 @@
-var data = require("../tasksAlt.json");
+var data = require("../tasks.json");
 
 exports.viewAlt = function(req, res){
 
