@@ -460,3 +460,7 @@ input.add-event-edit:-ms-input-placeholder {
   padding: 2px 5px;
   border-bottom: 1px solid #fff;
 }
+
+.day-events-list {
+  overflow: scroll;
+}
