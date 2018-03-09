@@ -32,13 +32,7 @@ function loadJSON(callback) {
  }
 
 function checkTask() {
-	ga("send", "event", "task", "finish");
-
-	loadJSON(function(response) {
-	// Parse JSON string into object
-	var actual_JSON = JSON.parse(response);
-	console.log(actual_JSON);
-	});
+	// ga("send", "event", "task", "finish");
 }
 
 // Loads date
@@ -92,6 +86,8 @@ function changeState(e) {
 }
 
 function openEdit() {
+
+	ga("send", "event", "task", "finish");
 
 	// selectors
 	var boxSel = $('.task a .box').children('h2');
