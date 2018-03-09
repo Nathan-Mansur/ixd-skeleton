@@ -2,7 +2,7 @@
  * Add CSE 100 Tasks.
  */
 
-var data = require("../public/js/tasks.json");
+var data = require("../tasks.json");
 var classData = require("../cse100tasks.json");
 
 exports.addClass = function(req, res){

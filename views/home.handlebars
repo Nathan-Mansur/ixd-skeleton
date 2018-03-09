@@ -38,7 +38,6 @@
 	  } );
 	</script>
 	<script src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/tasks.json"></script>
 	<script src="js/home.js"></script>
 	<!-- Bootstrap Date-Picker Plugin -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -116,7 +115,11 @@
 							<!-- Delete Mark -->
 							<!-- <div class="delete"><h2>&#8722;</h2></div> -->
 							<!-- Checkmark Box -->
-							<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
+							{{#if done}}
+								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9745;</h2></div>
+							{{else}}
+								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
+							{{/if}}
 
 							<!-- Task -->
 							<div class="taskName col-sm-12 "><h2>{{name}}</h2>

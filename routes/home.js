@@ -2,7 +2,7 @@
  * GET home page.
  */
 
-var data = require("../public/js/tasks.json");
+var data = require("../tasks.json");
 
 exports.view = function(req, res){
 
