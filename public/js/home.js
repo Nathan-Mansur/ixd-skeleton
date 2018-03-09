@@ -124,32 +124,32 @@ function openAdd() {
 function submitAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
 
-	loadJSON(function(response) {
-		// Parse JSON string into object
-		var tasksJSON = JSON.parse(response);
-		console.log(tasksJSON);
+	// loadJSON(function(response) {
+	// 	// Parse JSON string into object
+	// 	var tasksJSON = JSON.parse(response);
+	// 	console.log(tasksJSON);
 
-		var taskName = document.getElementById('taskInput').value;
-		var taskTime = document.getElementById('timeInput').value;
-		var taskID = "";
-		for (i = 0; i < taskName.length; i++) {
-	        if (taskName[i] != " " && taskName[i] != ":" && taskName[i] != "\'")
-	            taskID += taskName[i];
-    	}
+	// 	var taskName = document.getElementById('taskInput').value;
+	// 	var taskTime = document.getElementById('timeInput').value;
+	// 	var taskID = "";
+	// 	for (i = 0; i < taskName.length; i++) {
+	//         if (taskName[i] != " " && taskName[i] != ":" && taskName[i] != "\'")
+	//             taskID += taskName[i];
+ //    	}
 
-		console.log(document.getElementById('taskInput').value);
-		var newTask = {
-			"id": taskID,
-			"name": taskName,
-			"time": taskTime,
-			"user": '123456abcdef',
-        	'done': false
-		}
+	// 	console.log(document.getElementById('taskInput').value);
+	// 	var newTask = {
+	// 		"id": taskID,
+	// 		"name": taskName,
+	// 		"time": taskTime,
+	// 		"user": '123456abcdef',
+ //        	'done': false
+	// 	}
 
-		tasksJSON["tasks"].push(newTask);
-	});
+	// 	tasksJSON["tasks"].push(newTask);
+	// });
 
-	$('#tasklist').load(document.URL +  ' #tasklist');
+	// $('#tasklist').load(document.URL +  ' #tasklist');
 }
 
 function closeAdd() {
