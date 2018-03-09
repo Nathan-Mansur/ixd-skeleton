@@ -4,10 +4,18 @@ $(document).ready(function() {
 	$('.task a').click(changeState);
 	$('a#editButton').click(openEdit);
 
-	$('.task a').click(checkTask);
-
 	// pull focus onto tasklist
 	document.getElementById("tasklist").focus();
+
+	var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+    date_input.datepicker(options);
 
 	/* Keep checkmarks when navigating pages 
 	var todoList = $('#tasklist').html();
@@ -45,19 +53,6 @@ window.onload = function date(){
 	d = n.getDate();
 	document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 }
-
-// Date chooser on Popup
- $(document).ready(function() { 
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-})
 
 $(".draggable").click(function() {
    $(this).insertBefore($(this).prev());
