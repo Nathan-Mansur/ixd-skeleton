@@ -2,7 +2,7 @@
  * GET adding class page.
  */
 
-var data = require("../tasks.json");
+var data = require("../public/js/tasks.json");
 var classData = require("../cogs14Btasks.json");
 
 exports.addClass = function(req, res){

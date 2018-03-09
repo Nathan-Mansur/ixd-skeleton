@@ -17,9 +17,28 @@ $(document).ready(function() {
 	*/
 })
 
+function loadJSON(callback) {   
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'js/tasks.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+
 function checkTask() {
-	console.log("finished task");
 	ga("send", "event", "task", "finish");
+
+	loadJSON(function(response) {
+	// Parse JSON string into object
+	var actual_JSON = JSON.parse(response);
+	console.log(actual_JSON);
+	});
 }
 
 // Loads date
@@ -104,6 +123,33 @@ function openAdd() {
 
 function submitAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
+
+	// loadJSON(function(response) {
+	// 	// Parse JSON string into object
+	// 	var tasksJSON = JSON.parse(response);
+	// 	console.log(tasksJSON);
+
+	// 	var taskName = document.getElementById('taskInput').value;
+	// 	var taskTime = document.getElementById('timeInput').value;
+	// 	var taskID = "";
+	// 	for (i = 0; i < taskName.length; i++) {
+	//         if (taskName[i] != " " && taskName[i] != ":" && taskName[i] != "\'")
+	//             taskID += taskName[i];
+ //    	}
+
+	// 	console.log(document.getElementById('taskInput').value);
+	// 	var newTask = {
+	// 		"id": taskID,
+	// 		"name": taskName,
+	// 		"time": taskTime,
+	// 		"user": '123456abcdef',
+ //        	'done': false
+	// 	}
+
+	// 	tasksJSON["tasks"].push(newTask);
+	// });
+
+	// $('#tasklist').load(document.URL +  ' #tasklist');
 }
 
 function closeAdd() {
