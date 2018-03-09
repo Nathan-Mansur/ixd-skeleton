@@ -48,6 +48,7 @@
 	  } );
 	</script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/tasks.json"></script>
 	<script src="js/home.js"></script>
 	<!-- Bootstrap Date-Picker Plugin -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -81,7 +82,7 @@
 
 		<!-- Popup button -->
 		<div id="addPop" class="popup">
-			<form id="addTaskForm" role="form" method="get" action="/add">
+			<form id="addTaskForm" role="form" method="get">
 				<!-- Input Task -->
 	    	    <div class="form-group">
 	    	    	<label style="margin-top: 10px;">task</label>
@@ -110,7 +111,7 @@
 	    	    </div>
 	    	-->
 
-	    	    <input type="submit" id="submitBtn" class="btn btn-default" value="add!" onsubmit="submitAdd()"></input>
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input>
 	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
     		</form>
 		</div>
