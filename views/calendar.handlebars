@@ -65,7 +65,10 @@
         
       </div>
       <div id="day-events-list" class="day-events-list">
-        
+        {{#each tasks}}
+              <!-- Task -->
+              <div class="taskName col-sm-12 "><h2>{{name}}</h2></div>
+        {{/each}}
       </div>
       <div class="day-inspiration-quote" id="inspirational-quote">
         Every child is an artist.  The problem is how to remain an artist once he grows up. –Pablo Picasso
