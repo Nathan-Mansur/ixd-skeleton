@@ -4,26 +4,29 @@
             "id": 1,
             "buttonID": "cogs14b",
             "class": "cogs 14b",
-            "action": "/addClassCogs14B"
-
+            "action": "/addClassCogs14B",
+            "active": true
         },
         {
             "id": 2,
             "buttonID": "cogs120",
             "class": "cogs 120",
-            "action": "/addClassCogs120"
+            "action": "/addClassCogs120",
+            "active": true
         },
         {
             "id": 3,
             "buttonID": "cogs120",
             "class": "cse 100",
-            "action": "/addClassCse100"
+            "action": "/addClassCse100",
+            "active": true
         },
         {
             "id": 4,
             "buttonID": "cogs120",
             "class": "dsgn 100",
-            "action": "/addClassDsgn100"
+            "action": "/addClassDsgn100",
+            "active": true
         }
     ]
 }
