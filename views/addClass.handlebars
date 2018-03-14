@@ -6,11 +6,14 @@
     
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/headers.css" rel="stylesheet">
     <link href="css/addClass.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/addClass.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/addClass.js"></script>
 </head>
 
 <body>
@@ -25,26 +28,25 @@
 
     <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-    <div class="container text-center title">
-        <h1>add a class</h1>
-    </div>
+    <div class="container text-center">
+        <h1 id="title">add a class</h1>
+        <div style="height: 10vh"></div><hr class="topbar">
 
-    {{#each classes}}
-        <div class="buttons" id="{{id}}">
-            <div>
-                <form role="form" method="get" action="{{action}}">
-                    <button id="{{buttonID}}">{{class}}</button>
-                </form>
+        {{#each classes}}
+            <div class="buttons" id="{{id}}">
+                <div>
+                    <form role="form" method="get" action="{{action}}">
+                        <button id="{{buttonID}}">{{class}}</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    {{/each}}
-        
+        {{/each}}
+
+        <!-- The actual snackbar -->
+        <div id="snackbar"><h4>Tasks from this class have been added to your Homepage!</h4></div>
+
+        <h3>More classes coming soon!</h3>
     </div>
-
-    <!-- The actual snackbar -->
-    <div id="snackbar"><h4>Tasks from this class have been added to your Homepage!</h4></div>
-
-    <h3>More classes coming soon!</h3>
 
 </body>
 </html>

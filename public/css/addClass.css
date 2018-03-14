@@ -8,69 +8,6 @@ body, html {
  	background-size: cover;
 }
 
-h3 {
-    text-align: center;
-    color: white;
-    margin-top: 100px;
-    font-size: 12px;
-}
-
-span {
-    z-index: 1;
-    position: fixed;
-    color: silver;
-    margin-top: 20px;
-    margin-left: 30px;
-}
-
-.title {
-    margin-bottom: 10px;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    background-color:rgba(0, 0, 0, 0.93);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: silver;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-#current {
-    background-color: #256C80;
-    color: white;
-}
-
-.naviBut:hover {
-    color: white;
-    background-color: #006331;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
 #addClassNav {
     background-color: blue;
 }
@@ -82,7 +19,7 @@ span {
 button {
     width: 300px;
     height: 75px;
-    margin: 20px;
+    margin: 18px;
     background-color: #4CB9DA;
     color: white;
     font-size: 30px;
