@@ -16,36 +16,9 @@ $(document).ready(function() {
         autoclose: true,
       };
     date_input.datepicker(options);
-
-	/* Keep checkmarks when navigating pages 
-	var todoList = $('#tasklist').html();
-	localStorage.setItem('todoList', JSON.stringify(todoList));
-	var retrievedObject = localStorage.getItem('todoList');
-	document.getElementById('tasklist').innerHTML = JSON.parse(retrievedObject);
-	*/
 })
 
-/*
-function loadJSON(callback) {   
-
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    xobj.open('GET', '../tasks.json', true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);  
- }
-*/
-
-function checkTask() {
-	// ga("send", "event", "task", "finish");
-}
-
-// Loads date
+// loads date
 window.onload = function date(){
 	n = new Date();
 	y = n.getFullYear();
@@ -54,11 +27,12 @@ window.onload = function date(){
 	document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 }
 
+// draggable feature
 $(".draggable").click(function() {
    $(this).insertBefore($(this).prev());
 });
 
-
+// check and uncheck tasks
 function changeState(e) {
 	e.preventDefault();
 
@@ -82,9 +56,10 @@ function changeState(e) {
 	}
 }
 
+// edit button
 function openEdit() {
 
-	ga("send", "event", "task", "finish");
+	// ga("send", "event", "task", "finish");
 
 	// selectors
 	var boxSel = $('.task a .box').children('h2');
@@ -102,47 +77,13 @@ function openEdit() {
 	}
 }
 
-function openNav() {
-	document.getElementById("mySidenav").style.width = "225px";
-}
-
-function closeNav() {
-	document.getElementById("mySidenav").style.width = "0";
-}
-
+// add popup
 function openAdd() {
 	document.getElementById("addPop").style.zIndex = "2";
 }
 
 function submitAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
-
-	// loadJSON(function(response) {
-	// 	// Parse JSON string into object
-	// 	var tasksJSON = JSON.parse(response);
-	// 	console.log(tasksJSON);
-
-	// 	var taskName = document.getElementById('taskInput').value;
-	// 	var taskTime = document.getElementById('timeInput').value;
-	// 	var taskID = "";
-	// 	for (i = 0; i < taskName.length; i++) {
-	//         if (taskName[i] != " " && taskName[i] != ":" && taskName[i] != "\'")
-	//             taskID += taskName[i];
- //    	}
-
-	// 	console.log(document.getElementById('taskInput').value);
-	// 	var newTask = {
-	// 		"id": taskID,
-	// 		"name": taskName,
-	// 		"time": taskTime,
-	// 		"user": '123456abcdef',
- //        	'done': false
-	// 	}
-
-	// 	tasksJSON["tasks"].push(newTask);
-	// });
-
-	// $('#tasklist').load(document.URL +  ' #tasklist');
 }
 
 function closeAdd() {
@@ -150,8 +91,8 @@ function closeAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
 }
 
+// shepherd touring
 function startTour() {
-	// shepherd touring
 	var tour;
 	tour = new Shepherd.Tour({
 	  defaults: {
@@ -234,11 +175,3 @@ function startTour() {
 
 	tour.start();
 }
-
-/*
-window.onload = function what() {
-	var todoList = $('#tasklist').html();
-	localStorage.setItem("todoList", todoList);
-	document.getElementById('tasklist').innerHTML = localStorage.getItem("todoList");
-}
-*/

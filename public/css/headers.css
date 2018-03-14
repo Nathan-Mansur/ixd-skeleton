@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'museo_sans_100';
+    src: url('fonts/museo_sans_100.otf');
+}
+
+@font-face {
+    font-family: 'museo_sans_300';
+    src: url('fonts/museo_sans_300.otf');
+}
+
+h1 {
+    z-index: 0;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    font-family: 'museo_sans_300';
+}
+
+h2, h3 {
+    color: white;
+
+    font-family: 'museo_sans_300';
+}
+
+h3 {
+    font-size: 15pt;
+    color: white;
+}
+
+h4 {
+    font-size: 12pt;
+    font-family: 'museo_sans_300';
+}
+
+#title {
+    top: 21px;
+}
+
+body {
+    transition: background-color .5s;
+    font-family: 'museo_sans_300';
+}

@@ -21,7 +21,7 @@ exports.addTask = function(req, res) {
         'done': false
     }
 
-    data.tasks.push(newTask);
+    data.tasks.unshift(newTask);
     res.render('home', {
         'tasks': data.tasks,
     });

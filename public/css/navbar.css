@@ -1,0 +1,61 @@
+span#openNav {
+    z-index: 1;
+    position: fixed;
+    color: silver;
+    margin-top: 20px;
+    margin-left: 30px;
+
+    transition: 0.3s;
+}
+
+#current {
+    background-color: #256C80;
+    color: white;
+}
+
+.naviBut:hover {
+    color: white;
+    background-color: #006331;
+}
+
+#openNav:hover {
+    color: white;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.93);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: silver;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.closebtn:hover {
+    color: white;
+}

@@ -6,17 +6,20 @@
     
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/headers.css" rel="stylesheet">
     <link href="css/calendar.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script scr="js/navbar.js"></script>
     
 </head>
 
 <body>
 
-    <!-- Side Nav Bar -->
-    <div id="mySidenav" class="sidenav">
+  <!-- Side Nav Bar -->
+  <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="home" class="naviBut">home</a>
       <a id="current" class="naviBut">calendar</a>
@@ -24,78 +27,79 @@
       <a href="/" class="naviBut">log out</a>
   </div>
 
-    <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    <div class="container text-center">
-        <h1>calendar</h1>
-    </div> 
+  <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  
+  <div class="container text-center">
+    <h1 id="title">calendar</h1>
+    <div style="height: 15vh"></div>
 
-  <div class="calendar" id="calendar-app">
-  <div class="calendar--day-view" id="day-view">
-    <span class="day-view-exit" id="day-view-exit">&times;</span>
-    <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
-    <div class="day-view-content">
-      <div class="day-add-event" id="add-day-event-box" data-active="false">
-        <div class="row">
-          <div class="half">
-            <label class="add-event-label">
-               Name of event
-              <input type="text" class="add-event-edit add-event-edit--long" placeholder="New event" id="input-add-event-name">
-             
-            </label>
+    <div class="calendar" id="calendar-app">
+      <div class="calendar--day-view" id="day-view">
+        <span class="day-view-exit" id="day-view-exit">&times;</span>
+        <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
+        <div class="day-view-content">
+          <div class="day-add-event" id="add-day-event-box" data-active="false">
+            <div class="row">
+              <div class="half">
+                <label class="add-event-label">
+                   Name of event
+                  <input type="text" class="add-event-edit add-event-edit--long" placeholder="New event" id="input-add-event-name">
+                 
+                </label>
+              </div>
+              <div class="qtr">
+                <label class="add-event-label">
+              Start Time
+                  <input type="text" class="add-event-edit" placeholder="8:15" id="input-add-event-start-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
+                  <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-start-ampm" data-options="a,p,am,pm">
+                </label>
+              </div>
+              <div class="qtr">
+                <label class="add-event-label">
+              End Time
+                  <input type="text" class="add-event-edit" placeholder="9" id="input-add-event-end-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
+                  <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-end-ampm" data-options="a,p,am,pm">
+                </label>
+              </div>
+              <div class="half">
+                <a onkeyup="if(event.keyCode != 13) return; this.click();" tabindex="0" id="add-event-save" class="event-btn--save event-btn">save</a>
+                <a tabindex="0" id="add-event-cancel" class="event-btn--cancel event-btn">cancel</a>
+              </div>
+            </div>
+            
           </div>
-          <div class="qtr">
-            <label class="add-event-label">
-          Start Time
-              <input type="text" class="add-event-edit" placeholder="8:15" id="input-add-event-start-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
-              <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-start-ampm" data-options="a,p,am,pm">
-            </label>
+          <div id="day-events-list" class="day-events-list">
+            {{#each tasks}}
+                  <!-- Task -->
+                  <div class="taskName col-sm-12 "><h2>{{name}}</h2></div>
+            {{/each}}
           </div>
-          <div class="qtr">
-            <label class="add-event-label">
-          End Time
-              <input type="text" class="add-event-edit" placeholder="9" id="input-add-event-end-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
-              <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-end-ampm" data-options="a,p,am,pm">
-            </label>
-          </div>
-          <div class="half">
-            <a onkeyup="if(event.keyCode != 13) return; this.click();" tabindex="0" id="add-event-save" class="event-btn--save event-btn">save</a>
-            <a tabindex="0" id="add-event-cancel" class="event-btn--cancel event-btn">cancel</a>
+          <div class="day-inspiration-quote" id="inspirational-quote">
+            Every child is an artist.  The problem is how to remain an artist once he grows up. –Pablo Picasso
           </div>
         </div>
-        
       </div>
-      <div id="day-events-list" class="day-events-list">
-        {{#each tasks}}
-              <!-- Task -->
-              <div class="taskName col-sm-12 "><h2>{{name}}</h2></div>
-        {{/each}}
+      <div class="calendar--view" id="calendar-view">
+        <div class="cview__month">
+          <span class="cview__month-last" id="calendar-month-last">Apr</span>
+          <span class="cview__month-current" id="calendar-month">May</span>
+          <span class="cview__month-next" id="calendar-month-next">Jun</span>
+        </div>
+        <div class="cview__header">Sun</div>
+        <div class="cview__header">Mon</div>
+        <div class="cview__header">Tue</div>
+        <div class="cview__header">Wed</div>
+        <div class="cview__header">Thu</div>
+        <div class="cview__header">Fri</div>
+        <div class="cview__header">Sat</div>
+        <div class="calendar--view" id="dates"></div>
       </div>
-      <div class="day-inspiration-quote" id="inspirational-quote">
-        Every child is an artist.  The problem is how to remain an artist once he grows up. –Pablo Picasso
+      <div class="footer">
+        <span><span id="footer-date" class="footer__link"></span></span>    
       </div>
     </div>
   </div>
-  <div class="calendar--view" id="calendar-view">
-    <div class="cview__month">
-      <span class="cview__month-last" id="calendar-month-last">Apr</span>
-      <span class="cview__month-current" id="calendar-month">May</span>
-      <span class="cview__month-next" id="calendar-month-next">Jun</span>
-    </div>
-    <div class="cview__header">Sun</div>
-    <div class="cview__header">Mon</div>
-    <div class="cview__header">Tue</div>
-    <div class="cview__header">Wed</div>
-    <div class="cview__header">Thu</div>
-    <div class="cview__header">Fri</div>
-    <div class="cview__header">Sat</div>
-    <div class="calendar--view" id="dates">
-    </div>
-  </div>
-  <div class="footer">
-    <span><span id="footer-date" class="footer__link"></span></span>    
-  </div>
-</div>
-  
-    <script src="js/calendar.js"></script>
+
+  <script src="js/calendar.js"></script>
 </body>
 </html>

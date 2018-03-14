@@ -10,52 +10,11 @@ body, html {
     font-family: 'museo_sans_300';
 }
 
-@font-face {
-    font-family: 'museo_sans_100';
-    src: url('fonts/museo_sans_100.otf');
-}
-
-@font-face {
-    font-family: 'museo_sans_300';
-    src: url('fonts/museo_sans_300.otf');
-}
-
 .btn {
-	z-index: 0;
-	margin: 20px 30px 20px 0px;
-    margin: 20px;
-	width: 200px;
-}
-
-h1 {
     z-index: 0;
-	color: white;
-    position: fixed;
-    left: 0;
-    right: 0;
-    margin: auto;
-
-    font-family: 'museo_sans_300';
-}
-
-h2, h3 {
-    color: white;
-
-    font-family: 'museo_sans_300';
-}
-
-h3 {
-    font-size: 15pt;
-    color: white;
-}
-
-h4 {
-    font-size: 12pt;
-    font-family: 'museo_sans_300';
-}
-
-#title {
-    top: 21px;
+    margin: 20px 30px 20px 0px;
+    margin: 20px;
+    width: 200px;
 }
 
 .topbar {
@@ -64,16 +23,6 @@ h4 {
     left: 10px;
     right: 10px;
     margin: auto;
-}
-
-#current {
-    background-color: #256C80;
-    color: white;
-}
-
-.naviBut:hover {
-    color: white;
-    background-color: #006331;
 }
 
 .todays {
@@ -117,63 +66,6 @@ h4 {
     position: fixed;
     left: 15px;
     bottom: 10px;
-}
-
-body {
-    transition: background-color .5s;
-    font-family: 'museo_sans_300';
-}
-
-span {
-    z-index: 1;
-    position: fixed;
-    color: silver;
-    margin-top: 20px;
-    margin-left: 30px;
-
-    transition: 0.3s;
-}
-
-#openNav:hover {
-    color: white;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    background-color:rgba(0, 0, 0, 0.93);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: silver;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.closebtn:hover {
-    color: white;
 }
 
 .task {
