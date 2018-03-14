@@ -8,6 +8,18 @@ body, html {
  	background-size: cover;
 }
 
+#title {
+    color: black;
+}
+
+span#openNav {
+    color: black;
+}
+
+span#openNav:hover {
+    color: silver;
+}
+
 #addClassNav {
     background-color: blue;
 }
