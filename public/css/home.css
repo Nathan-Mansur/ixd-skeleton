@@ -103,7 +103,7 @@ body, html {
     left: 0;
     right: 0;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     transition: 0.3s;
 }
 
@@ -128,4 +128,24 @@ body, html {
 .delete h2 {
     color: red;
     display: inline;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+.btn {
+    color: #fff;
+    background: #0f0f0f;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #1c1c1c;
 }
