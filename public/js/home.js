@@ -1,7 +1,8 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 
-	$('.task a').click(changeState);
+	// $('.task a').click(changeState);
+	$('.task a').click(changeStateLS);
 	$('a#editButton').click(openEdit);
 
 	// pull focus onto tasklist
@@ -54,6 +55,10 @@ function changeState(e) {
 		timeSel.css("text-decoration", "line-through");
 		boxSel.html('&#9745;');
 	}
+}
+
+function changeStateLS() {
+	
 }
 
 // edit button

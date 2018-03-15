@@ -105,19 +105,26 @@
 			<li class="draggable">
 				<div class="task" id="{{id}}">
 					<div>
-						<a href="#" class="indvTasks" style="text-decoration: none;">
+						<a href="javascript:void(0)" class="indvTasks" style="text-decoration: none">
 
+							<!-- Task Box -->
 							{{#if done}}
 								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9745;</h2></div>
 							{{else}}
 								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
 							{{/if}}
 
-							<!-- Task -->
-							<div class="taskName col-sm-12 "><h2>{{name}}</h2>
-							<!-- Time -->
-							<div class="time col-sm-12"><h3>{{time}}</h3></div>
-							</div>	
+							<!-- Task and Time-->
+							{{#if done}}
+								<div class="taskName col-sm-12 "><h2 style="text-decoration: line-through">{{name}}</h2>
+								<div class="time col-sm-12"><h3 style="text-decoration: line-through">{{time}}</h3></div>
+								</div>
+							{{else}}
+								<div class="taskName col-sm-12 "><h2>{{name}}</h2>
+								<div class="time col-sm-12"><h3>{{time}}</h3></div>
+								</div>
+							{{/if}}
+
 						</a>
 					</div>
 					<div class="my-handle"><h2></h2></div>
