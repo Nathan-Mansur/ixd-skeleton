@@ -1,0 +1,151 @@
+body, html {
+	height: 100%;
+
+	background: url(images/2DForest.jpg) no-repeat center center fixed; 
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+
+    font-family: 'museo_sans_300';
+}
+
+.btn {
+    z-index: 0;
+    margin: 20px 30px 20px 0px;
+    margin: 20px;
+    width: 200px;
+}
+
+.topbar {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    margin: auto;
+}
+
+.todays {
+    position: fixed;
+    top: 14.5vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.box {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.edit {
+    z-index: 1;
+    position: fixed;
+    margin-top: 7px;
+    right: 30px;
+}
+
+.circle {
+    z-index: 2;
+    position: fixed;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    right: 25px;
+    bottom: 25px;
+    background: #E84F4F;
+    box-shadow: 0px 0px 10px 3px #444444;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quote {
+    color: white;
+    position: fixed;
+    left: 15px;
+    bottom: 10px;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-handle {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
+.indvTasks {
+    display: flex;
+    flex-direction: row;
+}
+
+#tasklist {
+    height: 60vh;
+    background-color: rgba(0,0,0,.2);
+    overflow: scroll;
+    padding-left: 13px;
+    padding-right: 13px;
+    text-align: left;
+}
+
+#addPop {
+    z-index: -1;
+    position: fixed;
+    transform: translateY(10px);
+    border-radius: 7%;
+    width: 250px;
+    height: 350px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+
+#submitBtn {
+    margin-bottom: 10px;
+}
+
+#cancelBtn {
+    margin-top: 10px;
+}
+
+#date {
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.time {
+    margin: -15px 0px 0px 0px;
+}
+
+.delete h2 {
+    color: red;
+    display: inline;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+.btn {
+    color: #fff;
+    background: #0f0f0f;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #1c1c1c;
+}

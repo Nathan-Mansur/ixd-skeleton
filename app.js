@@ -28,6 +28,7 @@ var sharedFriends = require('./routes/sharedFriends');
 var settings = require('./routes/settings');
 var group = require('./routes/group');
 var addFriend = require('./routes/addFriend');
+var tomorrow = require('./routes/tomorrow');
 
 //hard code 120 tasks
 //var cogs120 = require('./routes/cogs120');
@@ -79,6 +80,7 @@ app.get('/settings', settings.view);
 app.get('/group', group.view);
 app.get('/publicList', publicList.view);
 app.get('/addFriend', addFriend.add);
+app.get('/tomorrow', tomorrow.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
