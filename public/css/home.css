@@ -107,6 +107,21 @@ body, html {
     transition: 0.3s;
 }
 
+#timeSpent {
+    z-index: -1;
+    position: fixed;
+    transform: translateY(10px);
+    border-radius: 7%;
+    width: 250px;
+    height: 300px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+
 #submitBtn {
     margin-bottom: 10px;
 }
@@ -133,6 +148,7 @@ body, html {
 .form-control {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    border: none;
 }
 
 label {

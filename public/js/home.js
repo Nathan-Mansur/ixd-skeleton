@@ -1,10 +1,6 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 
-	// $('.task a').click(changeState);
-	$('.task a').click(changeStateLS);
-	$('a#editButton').click(openEdit);
-
 	// pull focus onto tasklist
 	document.getElementById("tasklist").focus();
 
@@ -17,6 +13,20 @@ $(document).ready(function() {
         autoclose: true,
       };
     date_input.datepicker(options);
+
+    var taskList = document.getElementById('tasklist');
+	let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+	localStorage.setItem('items', JSON.stringify(itemsArray));
+	var data = JSON.parse(localStorage.getItem('items'));
+
+	data.forEach(item => {
+		addTaskLS(item.id, item.task, item.time, item.done);
+	});
+
+	$('#tasklist li .task a').click(timeSpent);
+	$('a#editButton').click(openEdit);
+	$('#quote').click(openTime);
 })
 
 // loads date
@@ -33,53 +43,47 @@ $(".draggable").click(function() {
    $(this).insertBefore($(this).prev());
 });
 
+// add popup
+function openTime() {
+	document.getElementById("timeSpent").style.zIndex = "2";
+}
+
+function closeTime() {
+	document.getElementById("timeSpent").style.zIndex = "-1";
+}
+
+function timeSpent() {
+
+
+	changeState();
+}
+
 // check and uncheck tasks
-function changeState(e) {
-	e.preventDefault();
+function changeState() {
+	var data = JSON.parse(localStorage.getItem('items'));
 
-	var taskID = $(this).closest('.task').attr('id');
-	console.log(taskID);
+	var objId = $(this).closest('div.task').obj.attr('id');
 
-	// selectors
-	var taskSel = $('.task#' + taskID + ' a .taskName').children('h2');
-	var boxSel = $('.task#' + taskID + ' a .box').children('h2');
-	var timeSel = $('.task#' + taskID + ' a .time').children('h3');
+	data.forEach(item => {
+		if (item.id === objId) {
+			var boxSel = $('.task#' + objId + ' a .box').children('h2');
+			var taskSel = $('.task#' + objId + ' a .taskName').children('h2');
+			var timeSel = $('.task#' + objId + ' a .time').children('h3');
 
-	// strike through and checkbox
-	if (taskSel.css("text-decoration") === "line-through") {
-		taskSel.css("text-decoration", "none");
-		timeSel.css("text-decoration", "none");
-		boxSel.html('&#9744;');
-	} else {
-		taskSel.css("text-decoration", "line-through");
-		timeSel.css("text-decoration", "line-through");
-		boxSel.html('&#9745;');
-	}
-}
+			if (!item.done) {
+				taskSel.css("text-decoration", "line-through");
+				timeSel.css("text-decoration", "line-through");
+				boxSel.html('&#9745;');
+			} else {
+				taskSel.css("text-decoration", "none");
+				timeSel.css("text-decoration", "none");
+				boxSel.html('&#9744;');
+			}
 
-function changeStateLS() {
-	
-}
-
-// edit button
-function openEdit() {
-
-	// ga("send", "event", "task", "finish");
-
-	// selectors
-	var boxSel = $('.task a .box').children('h2');
-	var handleSel = $('.task .my-handle').children('h2');
-
-	// change box and line
-	if (boxSel.css("color") === "rgb(255, 0, 0)") {
-		boxSel.html('&#9744;');
-		boxSel.css("color", "white");
-		handleSel.html('');
-	} else {
-		boxSel.html('&#8722;');
-		boxSel.css("color", "red");
-		handleSel.html('::');
-	}
+			item.done = !item.done;
+			localStorage.setItem('items', JSON.stringify(data));
+		}
+	});
 }
 
 // add popup
@@ -89,11 +93,92 @@ function openAdd() {
 
 function submitAdd() {
 	document.getElementById("addPop").style.zIndex = "-1";
+
+	let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+	var taskInput = document.getElementById('taskInput');
+	var timeInput = document.getElementById('timeInput');
+	var taskId = "";
+
+	for (i = 0; i < taskInput.value.length; i++) {
+        if (taskInput.value[i] != " " && taskInput.value[i] != ":" && taskInput.value[i] != "\'")
+            taskId += taskInput.value[i];
+    }
+
+	var newTask = {
+		"id": taskId,
+		"task": taskInput.value,
+		"time": timeInput.value,
+		"done": false
+	}
+
+	itemsArray.push(newTask);
+	localStorage.setItem('items', JSON.stringify(itemsArray));
+
+	addTaskLS(taskId, taskInput.value, timeInput.value, false);
+
+	taskInput.value = "";
+	timeInput.value = "";
+}
+
+function addTaskLS(id, task, time, done) {
+	var taskList = document.getElementById('tasklist');
+
+	var htmlString = '<div class="task" id="' + id + '">';
+	htmlString += 	 '<div><a href="javascript:void(0)" class="indvTasks" style="text-decoration: none">';
+	htmlString += 	 '<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">';
+
+	if (!done) { htmlString += '&#9744;'; }
+	else { htmlString += '&#9745;'; }
+
+	htmlString +=    '</h2></div>';
+	htmlString += 	 '<div class="taskName col-sm-12">';
+	
+	if (!done) { htmlString += '<h2>'; }
+	else { htmlString += '<h2 style="text-decoration: line-through">'; }
+
+	htmlString +=	 task + '</h2>';
+	htmlString +=	 '<div class="time col-sm-12">';
+
+	if (!done) { htmlString += '<h3>'; }
+	else { htmlString += '<h3 style="text-decoration: line-through">'; }
+
+	htmlString +=	 time + '</h3></div></div>';
+	htmlString +=	 '</a></div>';
+
+	var li = document.createElement('li');
+	li.innerHTML = htmlString;
+	taskList.insertBefore(li, taskList.childNodes[0]);
 }
 
 function closeAdd() {
 	document.getElementById("taskInput").placeholder = "add a task"; /* This isn't working */
 	document.getElementById("addPop").style.zIndex = "-1";
+}
+
+// edit button
+function openEdit() {
+	var taskList = document.getElementById('tasklist');
+
+	localStorage.clear();
+	while (taskList.firstChild) {
+		taskList.removeChild(taskList.firstChild);
+	}
+
+	// // selectors
+	// var boxSel = $('.task a .box').children('h2');
+	// var handleSel = $('.task .my-handle').children('h2');
+
+	// // change box and line
+	// if (boxSel.css("color") === "rgb(255, 0, 0)") {
+	// 	boxSel.html('&#9744;');
+	// 	boxSel.css("color", "white");
+	// 	handleSel.html('');
+	// } else {
+	// 	boxSel.html('&#8722;');
+	// 	boxSel.css("color", "red");
+	// 	handleSel.html('::');
+	// }
 }
 
 // shepherd touring

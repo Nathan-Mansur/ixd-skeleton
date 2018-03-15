@@ -81,7 +81,7 @@
 
 		<!-- Popup button -->
 		<div id="addPop" class="popup">
-			<form id="addTaskForm" role="form" method="get" action="/add">
+			<form id="addTaskForm" role="form" method="get">
 
 				<!-- Input Task -->
 	    	    <div class="form-group">
@@ -96,27 +96,43 @@
 	    	    </div>
 
 				<!-- Submit/Cancel Buttons -->
-	    	    <input type="submit"" id="submitBtn" class="btn btn-default" value="add!" onsubmit="submitAdd()"></input>
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="add!" onclick="submitAdd()"></input>
 	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeAdd()"></input>
     		</form>
 		</div>
 
+		<!-- time spent -->
+		<div id="timeSpent" class="popup">
+			<form id="timeSpentForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">time spent</label>
+	    	    	<input id="spentInput" type="text" class="form-control" id="name" placeholder="how much time did you spend?" name="name" required>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="submit!" onclick="closeTime()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeTime()"></input>
+    		</form>
+		</div>
+
 		<!-- Task List -->
-		<ul id="tasklist">
-			{{#each tasks}}
+		<ul id="tasklist"></ul>
+
+		<!-- {{#each tasks}}
 			<li class="draggable">
 				<div class="task" id="{{id}}">
 					<div>
 						<a href="javascript:void(0)" class="indvTasks" style="text-decoration: none">
 
-							<!-- Task Box -->
+							<!-- Task Box
 							{{#if done}}
 								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9745;</h2></div>
 							{{else}}
 								<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">&#9744;</h2></div>
 							{{/if}}
 
-							<!-- Task and Time-->
+							<!-- Task and Time
 							{{#if done}}
 								<div class="taskName col-sm-12 "><h2 style="text-decoration: line-through">{{name}}</h2>
 								<div class="time col-sm-12"><h3 style="text-decoration: line-through">{{time}}</h3></div>
@@ -132,8 +148,7 @@
 					<div class="my-handle"><h2></h2></div>
 				</div>
 			</li>
-			{{/each}}
-		</ul>
+			{{/each}} -->
 
 		<!-- Add button -->
 		<a href="javascript:void(0)" onclick="openAdd()">
