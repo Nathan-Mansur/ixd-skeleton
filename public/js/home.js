@@ -52,17 +52,35 @@ function closeTime() {
 	document.getElementById("timeSpent").style.zIndex = "-1";
 }
 
-function timeSpent() {
-
-
+function submitTime() {
+	closeTime();
 	changeState();
+}
+
+function timeSpent() {
+	var data = JSON.parse(localStorage.getItem('items'));
+
+	var objId = localStorage.getItem('currentTask');
+
+	var currentItem = $(this).closest('div.task').attr('id');
+	localStorage.setItem('currentTask', currentItem);
+
+	data.forEach(item => {
+		if (item.id === objId) {
+			if (!item.done) {
+				openTime();
+			} else {
+				changeState();
+			}
+		}
+	});
 }
 
 // check and uncheck tasks
 function changeState() {
 	var data = JSON.parse(localStorage.getItem('items'));
 
-	var objId = $(this).closest('div.task').obj.attr('id');
+	var objId = localStorage.getItem('currentTask');
 
 	data.forEach(item => {
 		if (item.id === objId) {
