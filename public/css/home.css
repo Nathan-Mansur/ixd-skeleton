@@ -96,14 +96,15 @@ body, html {
 #addPop {
     z-index: -1;
     position: fixed;
-    transform: translateY(10px);
+    transform: translateY(-30px);
     border-radius: 7%;
     width: 250px;
-    height: 350px;
+    height: 400px;
+    font-size: 14pt;
     left: 0;
     right: 0;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     transition: 0.3s;
 }
 
@@ -114,11 +115,28 @@ body, html {
     border-radius: 7%;
     width: 250px;
     height: 300px;
+    font-size: 16pt;
     left: 0;
     right: 0;
     margin: auto;
     padding-top: 30px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
+}
+
+#uncheckCheck {
+    z-index: -1;
+    position: fixed;
+    transform: translateY(10px);
+    border-radius: 7%;
+    width: 250px;
+    height: 300px;
+    font-size: 14pt;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
     transition: 0.3s;
 }
 

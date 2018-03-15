@@ -86,13 +86,19 @@
 				<!-- Input Task -->
 	    	    <div class="form-group">
 	    	    	<label style="margin-top: 10px;">task</label>
-	    	    	<input id="taskInput" type="text" class="form-control" id="name" placeholder="add a task" name="name" required>
+	    	    	<input id="taskInput" type="text" class="form-control" id="name" placeholder="do laundry" name="name" required>
 	    	    </div>
 
-				<!-- Time Input -->
+				<!-- Start by Time Input -->
 	    	    <div class="form-group">
-	    	    	<label style="margin-top: 10px;">time</label>
+	    	    	<label style="margin-top: 10px;">start by time</label>
 	    	    	<input id="timeInput" type="text" class="form-control" placeholder="2:00pm" name="time" required>
+	    	    </div>
+
+	    	    <!-- Time Estimated Input -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">estimated time to spend</label>
+	    	    	<input id="spendInput" type="text" class="form-control" placeholder="2h" name="timespend" required>
 	    	    </div>
 
 				<!-- Submit/Cancel Buttons -->
@@ -113,6 +119,20 @@
 				<!-- Submit/Cancel Buttons -->
 	    	    <input type="button" id="submitBtn" class="btn btn-default" value="submit!" onclick="submitTime()"></input>
 	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="cancel" onclick="closeTime()"></input>
+    		</form>
+		</div>
+
+		<!-- check unchecking-->
+		<div id="uncheckCheck" class="popup">
+			<form id="uncheckForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">are you sure you want to uncheck this task?</label>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="yes" onclick="uncheckCheck()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="no" onclick="closeCheck()"></input>
     		</form>
 		</div>
 

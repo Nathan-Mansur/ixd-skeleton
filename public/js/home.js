@@ -53,27 +53,40 @@ function closeTime() {
 }
 
 function submitTime() {
+	var timeInput = document.getElementById("spentInput");
+
 	closeTime();
 	changeState();
+
+	timeInput.value = "";
 }
 
 function timeSpent() {
 	var data = JSON.parse(localStorage.getItem('items'));
 
-	var objId = localStorage.getItem('currentTask');
-
 	var currentItem = $(this).closest('div.task').attr('id');
 	localStorage.setItem('currentTask', currentItem);
+
+	var objId = localStorage.getItem('currentTask');
 
 	data.forEach(item => {
 		if (item.id === objId) {
 			if (!item.done) {
 				openTime();
 			} else {
-				changeState();
+				document.getElementById("uncheckCheck").style.zIndex = "2";
 			}
 		}
 	});
+}
+
+function uncheckCheck() {
+	closeCheck();
+	changeState();
+}
+
+function closeCheck() {
+	document.getElementById("uncheckCheck").style.zIndex = "-1";
 }
 
 // check and uncheck tasks
@@ -116,6 +129,7 @@ function submitAdd() {
 
 	var taskInput = document.getElementById('taskInput');
 	var timeInput = document.getElementById('timeInput');
+	var spendInput = document.getElementById('spendInput');
 	var taskId = "";
 
 	for (i = 0; i < taskInput.value.length; i++) {
@@ -127,6 +141,8 @@ function submitAdd() {
 		"id": taskId,
 		"task": taskInput.value,
 		"time": timeInput.value,
+		"spend": spendInput.value,
+		"spent": 0,
 		"done": false
 	}
 
@@ -137,11 +153,11 @@ function submitAdd() {
 
 	taskInput.value = "";
 	timeInput.value = "";
+
+	window.location.reload();
 }
 
 function addTaskLS(id, task, time, done) {
-	var taskList = document.getElementById('tasklist');
-
 	var htmlString = '<div class="task" id="' + id + '">';
 	htmlString += 	 '<div><a href="javascript:void(0)" class="indvTasks" style="text-decoration: none">';
 	htmlString += 	 '<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">';
@@ -166,7 +182,52 @@ function addTaskLS(id, task, time, done) {
 
 	var li = document.createElement('li');
 	li.innerHTML = htmlString;
-	taskList.insertBefore(li, taskList.childNodes[0]);
+
+	var timeNum = findTime(time);
+
+	var ind = addIndex(timeNum);
+	var taskList = document.getElementById('tasklist');
+	taskList.insertBefore(li, taskList.childNodes[ind]);
+}
+
+function findTime(time) {
+	var timeNum = "";
+	for (i = 0; i < time.length; i++) {
+		if (time[i] === ":") { break; }
+		timeNum += time[i];
+	}
+
+	var timeNum = parseInt(timeNum);
+	if (time[time.length - 2] === "p" || time[time.length - 2] === "P") {
+		if (timeNum != 12) { timeNum += 12; }
+	}
+
+	if (time[time.length - 2] === "a" || time[time.length - 2] === "A") {
+		if (timeNum === 12) { timeNum = 0; }
+	}
+
+	return timeNum;
+}
+
+function addIndex(time) {
+	var taskList = document.getElementById('tasklist');
+	var listTasks = taskList.getElementsByTagName("li");
+	var data = JSON.parse(localStorage.getItem('items'));
+
+	var ind = listTasks.length;
+	var done = false;
+	for (j = 0; j < listTasks.length; j++) {
+		var id = listTasks[j].firstChild.id;
+		data.forEach(item => {
+			if (item.id === id) {
+				var itemTime = findTime(item.time);
+				if (time < itemTime) { ind = j; done = true;}
+			}
+		});
+		if (done) { break; }
+	}
+
+	return ind;
 }
 
 function closeAdd() {
