@@ -77,7 +77,8 @@
 		
 		<h3 class="todays">today's tasks</h3>
 		<h4 id="date"></h4>
-		<h3><a href="tomorrow" style="text-decoration: none; color: white;">></a></h3>
+		<h3><a href="tomorrow" id="nextDay">></a></h3>
+		<h3><a href="yesterday" id="prevDay"><</a></h3>
 
 		<!-- Popup button -->
 		<div id="addPop" class="popup">
@@ -136,10 +137,72 @@
     		</form>
 		</div>
 
+		<div id="deleteCheck" class="popup">
+			<form id="uncheckForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">are you sure you want to delete this task?</label>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="yes" onclick="deleteTask()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="no" onclick="closeDelete()"></input>
+    		</form>
+		</div>
+
+
+		<div id="overTime" class="popup">
+			<form id="overForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">NOPE! you have too much commitment today. please get rid of a task before adding another one</label>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="fine..." onclick="closeOver()"></input>
+    		</form>
+		</div>
+
+		<div id="timeBreakdown" class="popup">
+			<form id="breakdownForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label id="timeBreakdownLabel" style="margin-top: 10px;">you <span style="color: lightblue">estimated</span> [time] for this task.<br><br>you <span style="color: pink">actually</span> took [time] for this task.</label>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="ok" onclick="closeBreakdown()"></input>
+    		</form>
+		</div>
+
 		<!-- Task List -->
 		<ul id="tasklist"></ul>
 
-		<!-- {{#each tasks}}
+		<!-- Add button -->
+		<div id="addButton">
+			<a href="javascript:void(0)" onclick="openAdd()">
+				<div class="circle"><p style="transform: translateY(2px); color: white; font-size: 50px">+</p></div>
+			</a>
+		</div>
+
+		<!-- Quote on the bottom -->
+		<h4 id="quote">"you can do it!" - mnml</h4>
+	</div>
+</body>
+</html>
+
+<!-- Google Analytics -->
+	<!-- <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-112003305-3', 'auto');
+		ga('send', 'pageview');
+	</script> -->
+	<!-- End Google Analytics -->
+	<!-- {{#each tasks}}
 			<li class="draggable">
 				<div class="task" id="{{id}}">
 					<div>
@@ -169,27 +232,3 @@
 				</div>
 			</li>
 			{{/each}} -->
-
-		<!-- Add button -->
-		<a href="javascript:void(0)" onclick="openAdd()">
-			<div class="circle"><p style="transform: translateY(2px); color: white; font-size: 50px">+</p></div>
-		</a>
-
-		<!-- Quote on the bottom -->
-		<h4 id="quote">"you can do it!" - mnml</h4>
-	</div>
-
-	<!-- Google Analytics -->
-	<!-- <script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-112003305-3', 'auto');
-		ga('send', 'pageview');
-	</script> -->
-	<!-- End Google Analytics -->
-
-</body>
-</html>

@@ -21,12 +21,14 @@ $(document).ready(function() {
 	var data = JSON.parse(localStorage.getItem('items'));
 
 	data.forEach(item => {
-		addTaskLS(item.id, item.task, item.time, item.done);
+		addTaskLS(item.id, item.task, item.time, item.spend, item.done);
 	});
+
+	localStorage.setItem('currentEdit', false);
 
 	$('#tasklist li .task a').click(timeSpent);
 	$('a#editButton').click(openEdit);
-	$('#quote').click(openTime);
+	$('.delete-task').click(checkDelete);
 })
 
 // loads date
@@ -55,29 +57,58 @@ function closeTime() {
 function submitTime() {
 	var timeInput = document.getElementById("spentInput");
 
+	var itemsArray = JSON.parse(localStorage.getItem('items'));
+	var itemId = localStorage.getItem('currentTask');
+	var time = timeInput.value;
+
+	itemsArray.forEach(item => {
+		if (item.id === itemId) {
+			localStorage.setItem('cseTime', time);
+			timeBreakdown(item.spend, time);
+		}
+	});
+
 	closeTime();
 	changeState();
 
 	timeInput.value = "";
 }
 
+function timeBreakdown(time, spent) {
+	htmlString = 'you <span style="color: lightblue">estimated </span>[';
+	htmlString += time + '] for this task.<br><br>you <span style="color: pink">';
+	htmlString += 'actually</span> took [' + spent + '] for this task.';
+
+	var selector = document.getElementById("timeBreakdownLabel");
+	console.log(selector.innerHTML);
+
+	selector.innerHTML = htmlString;
+	document.getElementById("timeBreakdown").style.zIndex = "2";
+}
+
+function closeBreakdown() {
+	document.getElementById("timeBreakdown").style.zIndex = "-1";
+}
+
 function timeSpent() {
 	var data = JSON.parse(localStorage.getItem('items'));
 
-	var currentItem = $(this).closest('div.task').attr('id');
-	localStorage.setItem('currentTask', currentItem);
+	if (localStorage.getItem('currentEdit') === "false") {
+		var currentItem = $(this).closest('div.task').attr('id');
+		localStorage.setItem('currentTask', currentItem);
 
-	var objId = localStorage.getItem('currentTask');
+		var objId = localStorage.getItem('currentTask');
 
-	data.forEach(item => {
-		if (item.id === objId) {
-			if (!item.done) {
-				openTime();
-			} else {
-				document.getElementById("uncheckCheck").style.zIndex = "2";
+		data.forEach(item => {
+			if (item.id === objId) {
+				if (!item.done) {
+					openTime();
+				} else {
+					document.getElementById("uncheckCheck").style.zIndex = "2";
+				}
 			}
-		}
-	});
+		});
+	}
 }
 
 function uncheckCheck() {
@@ -146,20 +177,61 @@ function submitAdd() {
 		"done": false
 	}
 
-	itemsArray.push(newTask);
-	localStorage.setItem('items', JSON.stringify(itemsArray));
+	if (checkTimeCap(spendInput.value)) {
+		document.getElementById("overTime").style.zIndex = "2";
+	} else {
+		itemsArray.push(newTask);
+		localStorage.setItem('items', JSON.stringify(itemsArray));
 
-	addTaskLS(taskId, taskInput.value, timeInput.value, false);
+		addTaskLS(taskId, taskInput.value, timeInput.value, spendInput.value, false);
 
+		window.location.reload();
+	}
+	
 	taskInput.value = "";
 	timeInput.value = "";
-
-	window.location.reload();
+	spendInput.value = "";
 }
 
-function addTaskLS(id, task, time, done) {
+function checkTimeCap(time) {
+	var itemsArray = JSON.parse(localStorage.getItem('items'));
+	var timeCap = 10 * 60;
+
+	time = parseTime(time);
+	console.log(time);
+
+	var totalTime = 0;
+	if (itemsArray != null) {
+		itemsArray.forEach(item => {
+			var taskTime = parseTime(item.spend);
+			console.log(taskTime);
+			totalTime += taskTime;
+		});
+	}
+	totalTime += time;
+
+	console.log(totalTime);
+
+	return totalTime > timeCap;
+}
+
+function parseTime(time) {
+	var timeStr = "";
+	for (i = 0; i < time.length; i++) {
+		if (!isNaN(time[i])) { timeStr += time[i]; }
+	}
+	
+	timeStr = parseInt(timeStr);
+	if (time[time.length - 1] === "h") {
+		timeStr *= 60;
+	}
+
+	return timeStr;
+}
+
+function addTaskLS(id, task, time, spend, done) {
 	var htmlString = '<div class="task" id="' + id + '">';
-	htmlString += 	 '<div><a href="javascript:void(0)" class="indvTasks" style="text-decoration: none">';
+	htmlString +=	 '<div><a href="javascript:void(0)" class="indvTasks">';
 	htmlString += 	 '<div class="box"><h2 style="transform: translateY(-4px) scale(1.4);">';
 
 	if (!done) { htmlString += '&#9744;'; }
@@ -177,8 +249,11 @@ function addTaskLS(id, task, time, done) {
 	if (!done) { htmlString += '<h3>'; }
 	else { htmlString += '<h3 style="text-decoration: line-through">'; }
 
-	htmlString +=	 time + '</h3></div></div>';
-	htmlString +=	 '</a></div>';
+	htmlString +=	 time + '&emsp;&emsp;' + spend + '</h3></div>';
+
+	htmlString += 	 '</div></a></div>';
+	htmlString +=	 '<div class="delete-task" style="transform: translateY(10px)"><h3></h3></div>';
+	htmlString += 	 '</div>';
 
 	var li = document.createElement('li');
 	li.innerHTML = htmlString;
@@ -230,6 +305,10 @@ function addIndex(time) {
 	return ind;
 }
 
+function closeOver() {
+	document.getElementById("overTime").style.zIndex = "-1";
+}
+
 function closeAdd() {
 	document.getElementById("taskInput").placeholder = "add a task"; /* This isn't working */
 	document.getElementById("addPop").style.zIndex = "-1";
@@ -237,27 +316,53 @@ function closeAdd() {
 
 // edit button
 function openEdit() {
-	var taskList = document.getElementById('tasklist');
+	var b = localStorage.getItem('currentEdit');
+	var trashSel = $('.task .delete-task').children('h3');
+	var boxSel = $('.task a .box').children('h2');
 
-	localStorage.clear();
-	while (taskList.firstChild) {
-		taskList.removeChild(taskList.firstChild);
+	if (b === "false") {
+		trashSel.html('<span class="glyphicon glyphicon-trash"></span>');
+		boxSel.html('');
+		document.getElementById('addButton').style.zIndex = "-1";
+		localStorage.setItem('currentEdit', true);
+	} else {
+		trashSel.html('');
+		boxSel.html('&#9744;');
+		document.getElementById('addButton').style.zIndex = "2";
+		localStorage.setItem('currentEdit', false);
+	}
+}
+
+function checkDelete() {
+	document.getElementById('deleteCheck').style.zIndex = 2;
+
+	var del = $(this).closest('div.task').attr('id');
+	localStorage.setItem('currentDelete', del);
+}
+
+function deleteTask() {
+	var itemsArray = JSON.parse(localStorage.getItem('items'));
+	var id = localStorage.getItem('currentDelete');
+
+	var taskList = document.getElementById('tasklist');
+	var listTasks = taskList.getElementsByTagName("li");
+
+	for (i = 0; i < itemsArray.length; i++) {
+		if (itemsArray[i].id === id) {
+			itemsArray.splice(i, 1);
+			localStorage.setItem('items', JSON.stringify(itemsArray));
+		}
 	}
 
-	// // selectors
-	// var boxSel = $('.task a .box').children('h2');
-	// var handleSel = $('.task .my-handle').children('h2');
+	$('.task#' + id).closest('li').remove();
 
-	// // change box and line
-	// if (boxSel.css("color") === "rgb(255, 0, 0)") {
-	// 	boxSel.html('&#9744;');
-	// 	boxSel.css("color", "white");
-	// 	handleSel.html('');
-	// } else {
-	// 	boxSel.html('&#8722;');
-	// 	boxSel.css("color", "red");
-	// 	handleSel.html('::');
-	// }
+	if (itemsArray.length === 0) { openEdit(); }
+
+	closeDelete();
+}
+
+function closeDelete() {
+	document.getElementById('deleteCheck').style.zIndex = -1;
 }
 
 // shepherd touring

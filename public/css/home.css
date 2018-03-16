@@ -45,8 +45,12 @@ body, html {
     right: 30px;
 }
 
-.circle {
+#addButton {
+    position: fixed;
     z-index: 2;
+}
+
+.circle {
     position: fixed;
     border-radius: 50%;
     width: 65px;
@@ -79,9 +83,33 @@ body, html {
   cursor: -webkit-grabbing;
 }
 
+#nextDay {
+    position: fixed;
+    right: 80px;
+    top: 110px;
+    text-decoration: none;
+    color: white;
+    font-size: 30pt;
+}
+
+#prevDay {
+    position: fixed;
+    left: 80px;
+    top: 110px;
+    text-decoration: none;
+    color: white;
+    font-size: 30pt;
+}
+
 .indvTasks {
+    text-decoration: none;
     display: flex;
     flex-direction: row;
+}
+
+.taskDiv {
+    display: flex;
+    justify-content: space-between;
 }
 
 #tasklist {
@@ -108,7 +136,7 @@ body, html {
     transition: 0.3s;
 }
 
-#timeSpent {
+#timeSpent, #uncheckCheck, #overTime, #timeBreakdown, #deleteCheck {
     z-index: -1;
     position: fixed;
     transform: translateY(10px);
@@ -120,24 +148,17 @@ body, html {
     right: 0;
     margin: auto;
     padding-top: 30px;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     transition: 0.3s;
 }
 
-#uncheckCheck {
-    z-index: -1;
-    position: fixed;
-    transform: translateY(10px);
-    border-radius: 7%;
-    width: 250px;
-    height: 300px;
-    font-size: 14pt;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding-top: 30px;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: 0.3s;
+#timeSpent, #uncheckCheck {
+    padding-top: 40px;
+}
+
+#timeBreakdown, #deleteCheck {
+    padding-top: 35px;
 }
 
 #submitBtn {
@@ -146,6 +167,11 @@ body, html {
 
 #cancelBtn {
     margin-top: 10px;
+}
+
+#submitBtn, #cancelBtn {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #date {
