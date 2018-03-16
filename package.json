@@ -22,7 +22,8 @@
     "mongoose": "*",
     "sortablejs": "^1.7.0",
     "tether-shepherd": "^1.8.1",
-    "trip.js": "^3.3.3"
+    "trip.js": "^3.3.3",
+    "wickedpicker": "^0.4.3"
   },
   "engines": {
     "node": "9.5.0",

@@ -24,13 +24,26 @@ $(document).ready(function() {
 		addTaskLS(item.id, item.task, item.time, item.spend, item.done);
 	});
 
+	localStorage.setItem('debug', false);
 	localStorage.setItem('currentEdit', false);
 	localStorage.setItem('cseTime', 0);
 
 	$('#tasklist li .task a').click(timeSpent);
 	$('a#editButton').click(openEdit);
 	$('.delete-task').click(checkDelete);
+	$('#quote').click(toggleDebug);
 })
+
+function toggleDebug() {
+	var debug = localStorage.getItem('debug');
+
+	if (debug === "false") {
+		localStorage.setItem('debug', true);
+	} else {
+		localStorage.clear();
+		window.location.reload();
+	}
+}
 
 // loads date
 window.onload = function date(){
@@ -64,7 +77,6 @@ function submitTime() {
 
 	itemsArray.forEach(item => {
 		if (item.id === itemId) {
-			console.log(itemId.substring(0, 6));
 			if (itemId.substring(0, 6) === "cse100") {
 				if (time > item.spend) { localStorage.setItem('cseTime', time); }
 			}
@@ -174,12 +186,13 @@ function submitAdd() {
 
     var csTime = localStorage.getItem('cseTime');
     csTime = csTime.substring(0, csTime.length);
-    spInput = spendInput.substring(0, spendInput.lenght);
-    console.log(csTime);
+    spInput = spendInput.value.substring(0, spendInput.value.length);
 
-    if (taskId.substring(0, 6) === "cse100" && parseInt(csTime) > parseInt(spendInput)) {
+    if (taskId.substring(0, 6) === "cse100" && parseInt(csTime) > parseInt(spInput)) {
     	spendInput.value = localStorage.getItem('cseTime');
     }
+
+    // timeInput.value = parseTimeInput(timeInput.value);
 
 	var newTask = {
 		"id": taskId,
@@ -206,6 +219,22 @@ function submitAdd() {
 	taskInput.value = "";
 	timeInput.value = "";
 	spendInput.value = "";
+}
+
+function parseTimeInput(time) {
+	console.log(time);
+	var newTime = ""
+	newTime = time.substring(0, 2);
+	newTime = parseInt(newTime);
+	if (newTime > 12) {
+		newTime -= 12;
+		newTime = newTime + time.substring(2, time.length + 1) + " PM";
+	} else if (newTime === 12) {
+		newTime = time + " PM";
+	} else {
+		newTime = time + " AM";
+	}
+	return newTime;
 }
 
 function checkTimeCap(time) {
@@ -281,15 +310,6 @@ function findTime(time) {
 	for (i = 0; i < time.length; i++) {
 		if (time[i] === ":") { break; }
 		timeNum += time[i];
-	}
-
-	var timeNum = parseInt(timeNum);
-	if (time[time.length - 2] === "p" || time[time.length - 2] === "P") {
-		if (timeNum != 12) { timeNum += 12; }
-	}
-
-	if (time[time.length - 2] === "a" || time[time.length - 2] === "A") {
-		if (timeNum === 12) { timeNum = 0; }
 	}
 
 	return timeNum;
@@ -413,7 +433,7 @@ function startTour() {
 	tour.addStep('step1', {
 	title: 'Welcome!',
 	text: 'Welcome to your favorite to-do app, mnml!',
- 	attachTo: '#title bottom',
+ 	attachTo: '#tasklist bottom',
 	buttons: [
 		{
 			text: 'Next',
@@ -424,7 +444,7 @@ function startTour() {
 
 	tour.addStep('step2', {
 	title: 'Task List',
-	text: 'This is your to-do list! We\'ve intelligently sorted it by due date to make sure you finish each assignment on time!',
+	text: 'This is your to-do list! We\'ve intelligently sorted it by your start-by time to make sure you finish each assignment on time!',
 	attachTo: '#tasklist top',
 	buttons: [
 		{
@@ -435,9 +455,9 @@ function startTour() {
 	});
 
 	tour.addStep('step3', {
-	title: 'Quote',
-	text: 'An inspirational quote to keep you motivated!',
-	attachTo: '#quote top',
+	title: 'Add',
+	text: 'Add a task by clicking here!',
+	attachTo: '#addButton right',
 	buttons: [
 		{
 			text: 'Next',
@@ -447,18 +467,6 @@ function startTour() {
 	});
 
 	tour.addStep('step4', {
-	title: 'Add',
-	text: 'Add a task by clicking here!',
-	attachTo: '.circle top',
-	buttons: [
-		{
-			text: 'Next',
-			action: tour.next
-		}
-	]
-	});
-
-	tour.addStep('step5', {
 	title: 'Navigation',
 	text: 'Click here to see the different parts of the app including your social circle, adding a class, and more!',
 	attachTo: '#openNav bottom',
@@ -470,10 +478,10 @@ function startTour() {
 	]
 	});
 
-	tour.addStep('step6', {
+	tour.addStep('step5', {
 	title: 'Enjoy!',
 	text: 'Hope you enjoy using this app and are motivated to do work!',
-	attachTo: 'body bottom',
+	attachTo: '#tasklist top',
 	buttons: [
 		{
 			text: 'Next',
