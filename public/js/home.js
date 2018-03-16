@@ -174,6 +174,7 @@ function submitAdd() {
 
     var csTime = localStorage.getItem('cseTime');
     csTime = csTime.substring(0, csTime.length);
+    spInput = spendInput.substring(0, spendInput.lenght);
     console.log(csTime);
 
     if (taskId.substring(0, 6) === "cse100" && parseInt(csTime) > parseInt(spendInput)) {

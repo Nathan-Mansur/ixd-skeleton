@@ -16,14 +16,14 @@
         },
         {
             "id": 3,
-            "buttonID": "cogs120",
+            "buttonID": "cse100",
             "class": "cse 100",
             "action": "/addClassCse100",
             "active": true
         },
         {
             "id": 4,
-            "buttonID": "cogs120",
+            "buttonID": "dsgn100",
             "class": "dsgn 100",
             "action": "/addClassDsgn100",
             "active": true

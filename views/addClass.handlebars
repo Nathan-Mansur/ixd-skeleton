@@ -32,15 +32,44 @@
         <h1 id="title">add a class</h1>
         <div style="height: 10vh"></div><hr class="topbar">
 
-        {{#each classes}}
+        <div class="buttons" id="cogs14b">
+            <div>
+                <form role="form" method="get">
+                    <button id="cogs14b" type="button">cogs14b</button>
+                </form>
+            </div>
+        </div>
+        <div class="buttons" id="cogs120">
+            <div>
+                <form role="form" method="get">
+                    <button id="cogs120" type="button">cogs120</button>
+                </form>
+            </div>
+        </div>
+        <div class="buttons" id="cse100">
+            <div>
+                <form role="form" method="get">
+                    <button id="cse100" type="button">cse100</button>
+                </form>
+            </div>
+        </div>
+        <div class="buttons" id="dsgn100">
+            <div>
+                <form role="form" method="get">
+                    <button id="dsgn100" type="button">dsgn100</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- {{#each classes}}
             <div class="buttons" id="{{id}}">
                 <div>
-                    <form role="form" method="get" action="{{action}}">
-                        <button id="{{buttonID}}">{{class}}</button>
+                    <form role="form" method="get">
+                        <button id="{{buttonID}}" type="button" onclick="{{buttonID}}()">{{class}}</button>
                     </form>
                 </div>
             </div>
-        {{/each}}
+        {{/each}} -->
 
         <!-- The actual snackbar -->
         <div id="snackbar"><h4>Tasks from this class have been added to your Homepage!</h4></div>
