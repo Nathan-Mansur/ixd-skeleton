@@ -175,6 +175,25 @@
     		</form>
 		</div>
 
+		<div id="deleteAll"" class="popup">
+			<form id="deleteAllForm" role="form" method="get">
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="delete all" onclick="checkDeleteAll()"></input>
+    		</form>
+		</div>
+
+		<div id="deleteAllCheck" class="popup">
+			<form id="deleteAllForm" role="form" method="get">
+
+				<!-- Input Task -->
+	    	    <div class="form-group">
+	    	    	<label style="margin-top: 10px;">are you sure you want to delete all tasks?</label>
+	    	    </div>
+				<!-- Submit/Cancel Buttons -->
+	    	    <input type="button" id="submitBtn" class="btn btn-default" value="yes" onclick="deleteAll()"></input>
+	    	    <input type="cancel" id="cancelBtn" class="btn btn-default" value="no" onclick="closeDeleteAll()"></input>
+    		</form>
+		</div>
+
 		<!-- Task List -->
 		<ul id="tasklist"></ul>
 

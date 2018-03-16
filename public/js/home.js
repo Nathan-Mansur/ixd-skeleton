@@ -25,6 +25,7 @@ $(document).ready(function() {
 	});
 
 	localStorage.setItem('currentEdit', false);
+	localStorage.setItem('cseTime', 0);
 
 	$('#tasklist li .task a').click(timeSpent);
 	$('a#editButton').click(openEdit);
@@ -63,7 +64,11 @@ function submitTime() {
 
 	itemsArray.forEach(item => {
 		if (item.id === itemId) {
-			localStorage.setItem('cseTime', time);
+			console.log(itemId.substring(0, 6));
+			if (itemId.substring(0, 6) === "cse100") {
+				if (time > item.spend) { localStorage.setItem('cseTime', time); }
+			}
+
 			timeBreakdown(item.spend, time);
 		}
 	});
@@ -80,7 +85,6 @@ function timeBreakdown(time, spent) {
 	htmlString += 'actually</span> took [' + spent + '] for this task.';
 
 	var selector = document.getElementById("timeBreakdownLabel");
-	console.log(selector.innerHTML);
 
 	selector.innerHTML = htmlString;
 	document.getElementById("timeBreakdown").style.zIndex = "2";
@@ -168,6 +172,14 @@ function submitAdd() {
             taskId += taskInput.value[i];
     }
 
+    var csTime = localStorage.getItem('cseTime');
+    csTime = csTime.substring(0, csTime.length);
+    console.log(csTime);
+
+    if (taskId.substring(0, 6) === "cse100" && parseInt(csTime) > parseInt(spendInput)) {
+    	spendInput.value = localStorage.getItem('cseTime');
+    }
+
 	var newTask = {
 		"id": taskId,
 		"task": taskInput.value,
@@ -176,6 +188,8 @@ function submitAdd() {
 		"spent": 0,
 		"done": false
 	}
+
+	localStorage.setItem('cseTime', 0);
 
 	if (checkTimeCap(spendInput.value)) {
 		document.getElementById("overTime").style.zIndex = "2";
@@ -198,19 +212,15 @@ function checkTimeCap(time) {
 	var timeCap = 10 * 60;
 
 	time = parseTime(time);
-	console.log(time);
 
 	var totalTime = 0;
 	if (itemsArray != null) {
 		itemsArray.forEach(item => {
 			var taskTime = parseTime(item.spend);
-			console.log(taskTime);
 			totalTime += taskTime;
 		});
 	}
 	totalTime += time;
-
-	console.log(totalTime);
 
 	return totalTime > timeCap;
 }
@@ -317,19 +327,24 @@ function closeAdd() {
 // edit button
 function openEdit() {
 	var b = localStorage.getItem('currentEdit');
+	var itemsArray = JSON.parse(localStorage.getItem('items'));
 	var trashSel = $('.task .delete-task').children('h3');
 	var boxSel = $('.task a .box').children('h2');
 
-	if (b === "false") {
-		trashSel.html('<span class="glyphicon glyphicon-trash"></span>');
-		boxSel.html('');
-		document.getElementById('addButton').style.zIndex = "-1";
-		localStorage.setItem('currentEdit', true);
-	} else {
-		trashSel.html('');
-		boxSel.html('&#9744;');
-		document.getElementById('addButton').style.zIndex = "2";
-		localStorage.setItem('currentEdit', false);
+	if (itemsArray.length > 0) {
+		if (b === "false") {
+			trashSel.html('<span class="glyphicon glyphicon-trash"></span>');
+			boxSel.html('');
+			document.getElementById('addButton').style.zIndex = "-1";
+			document.getElementById('deleteAll').style.zIndex = "2";
+			localStorage.setItem('currentEdit', true);
+		} else {
+			trashSel.html('');
+			boxSel.html('&#9744;');
+			document.getElementById('addButton').style.zIndex = "2";
+			document.getElementById('deleteAll').style.zIndex = "-1";
+			localStorage.setItem('currentEdit', false);
+		}
 	}
 }
 
@@ -362,7 +377,26 @@ function deleteTask() {
 }
 
 function closeDelete() {
-	document.getElementById('deleteCheck').style.zIndex = -1;
+	document.getElementById('deleteCheck').style.zIndex = "-1";
+}
+
+function checkDeleteAll() {
+	document.getElementById('deleteAllCheck').style.zIndex = "2";
+}
+
+function deleteAll() {
+	openEdit();
+
+	var itemsArray = JSON.parse(localStorage.getItem('items'));
+
+	itemsArray = [];
+	localStorage.setItem('items', JSON.stringify(itemsArray));
+	$('#tasklist').empty();
+	closeDeleteAll();
+}
+
+function closeDeleteAll() {
+	document.getElementById('deleteAllCheck').style.zIndex = "-1";
 }
 
 // shepherd touring

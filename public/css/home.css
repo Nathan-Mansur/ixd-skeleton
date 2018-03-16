@@ -136,7 +136,20 @@ body, html {
     transition: 0.3s;
 }
 
-#timeSpent, #uncheckCheck, #overTime, #timeBreakdown, #deleteCheck {
+#deleteAll {
+    z-index: -1;
+    height: 0;
+    width: 0;
+    position: fixed;
+    border-radius: 7%;
+    font-size: 16pt;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
+    bottom: 125px;
+    left: 100px;
+}
+
+#timeSpent, #uncheckCheck, #overTime, #timeBreakdown, #deleteCheck, #deleteAllCheck {
     z-index: -1;
     position: fixed;
     transform: translateY(10px);
@@ -157,7 +170,7 @@ body, html {
     padding-top: 40px;
 }
 
-#timeBreakdown, #deleteCheck {
+#timeBreakdown, #deleteCheck, #deleteAllCheck {
     padding-top: 35px;
 }
 
