@@ -52,14 +52,16 @@ const classes = [
         "cse100": [
             {
                 "id": "cse100finishmilestoneforpa3",
-                "name": "cse 100: finish milestone for pa3",
+                "name": "cse 100: finish first milestone for pa1",
                 "time": "4:00 pm",
+                "spend": "3h"
             },
             {
                 "id": "cse100studyforquiz",
-                "name": "cse 100: study for quiz",
+                "name": "cse 100: study for quiz 1",
                 "time": "9:30 pm",
-            }
+                "spend": "1h"
+            },
         ]
     },
     {
