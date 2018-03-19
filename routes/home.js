@@ -21,48 +21,7 @@ exports.view = function(req, res){
   });
 };
 
-// // Imports the Google Cloud client library
-// const language = require('@google-cloud/language');
-
-// // Instantiates a client
-// const client = new language.LanguageServiceClient();
-
-// // The text to analyze
-// const text = 'cse100 pa2 due friday 11:59pm, start tomorrow';
-
-// const document = {
-//   content: text,
-//   type: 'PLAIN_TEXT',
-// };
-
-// // Detects the sentiment of the text
-// client
-//   .analyzeSentiment({document: document})
-//   .then(results => {
-//     const sentiment = results[0].documentSentiment;
-
-//     console.log(`Text: ${text}`);
-//     console.log(`Sentiment score: ${sentiment.score}`);
-//     console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-//   })
-//   .catch(err => {
-//     console.error('ERROR:', err);
-//   });
-
-// // Detects the syntax of the text
-// client
-//   .analyzeSyntax({document: document})
-//   .then(results => {
-//     const syntax = results[0];
-
-//     console.log(`Text: ${text}`);
-//     console.log(`Tokens: ${syntax.tokens[4].text.content}`);
-//   })
-//   .catch(err => {
-//     console.error('ERROR:', err);
-//   });
-
-// aws comprehend
+// aws comprehend (didn't have time to implement T^T)
 /*
 
 var AWS = require('aws-sdk');
