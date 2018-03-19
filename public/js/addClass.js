@@ -177,7 +177,7 @@ function cse100() {
             "id": item.id,
             "task": item.name,
             "time": item.time,
-            "spend": "",
+            "spend": item.spend,
             "spent": 0,
             "done": false
         }
